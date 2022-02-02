@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SalesLeadsStateMachine LocalTesting CustomValidationFailedCatchTest 1`] = `
+Map {
+  "Validation" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"Error\\":\\"CustomValidationError\\",\\"Cause\\":\\"Check Identity Validation Failed\\"}",
+    },
+  ],
+  "Check Identity" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+  ],
+  "Check Address" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+    },
+  ],
+  "CustomValidationFailed" => Array [
+    Object {
+      "input": "{\\"Error\\":\\"CustomValidationError\\",\\"Cause\\":\\"Check Identity Validation Failed\\"}",
+    },
+    Object {
+      "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+    },
+  ],
+}
+`;
+
+exports[`SalesLeadsStateMachine LocalTesting HappyPathTest 1`] = `
+Map {
+  "Validation" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+    },
+  ],
+  "Check Identity" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+    },
+  ],
+  "Check Address" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+    },
+  ],
+  "DetectSentiment" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+    },
+  ],
+  "Is Positive Sentiment?" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+    },
+  ],
+  "Add to FollowUp" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+    },
+  ],
+  "CustomerAddedToFollowup" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+    },
+    Object {
+      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+    },
+  ],
+}
+`;
+
+exports[`SalesLeadsStateMachine LocalTesting NegativeSentimentTest 1`] = `
+Map {
+  "Validation" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+    },
+  ],
+  "Check Address" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+    },
+  ],
+  "Check Identity" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+    },
+  ],
+  "DetectSentiment" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+    },
+  ],
+  "Is Positive Sentiment?" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+    },
+  ],
+  "NegativeSentimentDetected" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+    },
+    Object {
+      "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+    },
+  ],
+}
+`;
+
+exports[`SalesLeadsStateMachine LocalTesting RetryOnServiceExceptionTest 1`] = `
+Map {
+  "Validation" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+    },
+  ],
+  "Check Identity" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+    },
+  ],
+  "Check Address" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+    },
+  ],
+  "DetectSentiment" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+    },
+  ],
+  "Is Positive Sentiment?" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+    },
+  ],
+  "Add to FollowUp" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+    },
+    Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+    },
+  ],
+  "CustomerAddedToFollowup" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+    },
+    Object {
+      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+    },
+  ],
+}
+`;
+
+exports[`SalesLeadsStateMachine LocalTesting ValidationExceptionCatchTest 1`] = `
+Map {
+  "Validation" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"Error\\":\\"CustomAddressValidationError\\",\\"Cause\\":\\"Address Validation Exception\\"}",
+    },
+  ],
+  "Check Identity" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+    },
+  ],
+  "Check Address" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+  ],
+  "ValidationException" => Array [
+    Object {
+      "input": "{\\"Error\\":\\"CustomAddressValidationError\\",\\"Cause\\":\\"Address Validation Exception\\"}",
+    },
+    Object {
+      "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+    },
+  ],
+}
+`;

@@ -1,12 +1,27 @@
-# Welcome to your CDK TypeScript Construct Library project!
+# PoC Step Functions integration testing with Step Functions Local
 
-You should explore the contents of this project. It demonstrates a CDK Construct Library that includes a construct (`StepFunctionsTesting`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+Credits on extracting the ASL from CDK go to the following repository:
 
-The construct defines an interface (`StepFunctionsTestingProps`) to configure the visibility timeout of the queue.
+https://github.com/nathanagez/aws-cdk-state-machine-asl
 
-## Useful commands
+There is also an excellent blog post and recommended to read:
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
+https://nathanagez.com/blog/mocking-service-integration-step-functions-local-cdk/
+
+This repository takes a step further and creates the CDK within Jest and sends the ASL to Step Functions Local via the AWS SDK.
+
+## How to run the test
+
+```
+# install the dependencies
+npm install # whatsoever
+
+# run the test(make sure you have docker installed)
+npm test
+```
+
+## Reference
+
+- [Using Mocked Service Integrations - AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/sfn-local-test-sm-exec.html)
+- [Mocking service integrations with AWS Step Functions Local | AWS Compute Blog](https://aws.amazon.com/jp/blogs/compute/mocking-service-integrations-with-aws-step-functions-local/)
+- [aws-stepfunctions-examples/sam/app-local-testing-mock-config at main · aws-samples/aws-stepfunctions-examples](https://github.com/aws-samples/aws-stepfunctions-examples/tree/main/sam/app-local-testing-mock-config/)

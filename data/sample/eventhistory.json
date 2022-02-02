@@ -1,0 +1,359 @@
+[
+  {
+    "executionStartedEventDetails": {
+      "input": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"}}",
+      "inputDetails": { "truncated": false },
+      "roleArn": "arn:aws:iam::123456789012:role/service-role/LambdaSQSIntegration"
+    },
+    "id": 1,
+    "previousEventId": 0,
+    "timestamp": "2022-02-19T00:27:48.354Z",
+    "type": "ExecutionStarted"
+  },
+  {
+    "id": 2,
+    "previousEventId": 0,
+    "stateEnteredEventDetails": {
+      "input": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"}}",
+      "inputDetails": { "truncated": false },
+      "name": "Validation"
+    },
+    "timestamp": "2022-02-19T00:27:48.355Z",
+    "type": "ParallelStateEntered"
+  },
+  {
+    "id": 3,
+    "previousEventId": 2,
+    "timestamp": "2022-02-19T00:27:48.358Z",
+    "type": "ParallelStateStarted"
+  },
+  {
+    "id": 4,
+    "previousEventId": 3,
+    "stateEnteredEventDetails": {
+      "input": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"}}",
+      "inputDetails": { "truncated": false },
+      "name": "Check Identity"
+    },
+    "timestamp": "2022-02-19T00:27:48.360Z",
+    "type": "TaskStateEntered"
+  },
+  {
+    "id": 5,
+    "previousEventId": 4,
+    "taskScheduledEventDetails": {
+      "parameters": "{\"FunctionName\":\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\",\"Payload\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"}}",
+      "region": "us-east-1",
+      "resource": "invoke",
+      "resourceType": "lambda"
+    },
+    "timestamp": "2022-02-19T00:27:48.368Z",
+    "type": "TaskScheduled"
+  },
+  {
+    "id": 6,
+    "previousEventId": 3,
+    "stateEnteredEventDetails": {
+      "input": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"}}",
+      "inputDetails": { "truncated": false },
+      "name": "Check Address"
+    },
+    "timestamp": "2022-02-19T00:27:48.369Z",
+    "type": "TaskStateEntered"
+  },
+  {
+    "id": 7,
+    "previousEventId": 6,
+    "taskScheduledEventDetails": {
+      "parameters": "{\"FunctionName\":\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\",\"Payload\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"}}",
+      "region": "us-east-1",
+      "resource": "invoke",
+      "resourceType": "lambda"
+    },
+    "timestamp": "2022-02-19T00:27:48.370Z",
+    "type": "TaskScheduled"
+  },
+  {
+    "id": 8,
+    "previousEventId": 7,
+    "taskStartedEventDetails": {
+      "resource": "invoke",
+      "resourceType": "lambda"
+    },
+    "timestamp": "2022-02-19T00:27:48.373Z",
+    "type": "TaskStarted"
+  },
+  {
+    "id": 9,
+    "previousEventId": 5,
+    "taskStartedEventDetails": {
+      "resource": "invoke",
+      "resourceType": "lambda"
+    },
+    "timestamp": "2022-02-19T00:27:48.374Z",
+    "type": "TaskStarted"
+  },
+  {
+    "id": 10,
+    "previousEventId": 9,
+    "taskSucceededEventDetails": {
+      "output": "{\"identity\":{\"approved\":true,\"message\":\"identity validation passed\"}}",
+      "outputDetails": { "truncated": false },
+      "resource": "invoke",
+      "resourceType": "lambda"
+    },
+    "timestamp": "2022-02-19T00:27:48.375Z",
+    "type": "TaskSucceeded"
+  },
+  {
+    "id": 11,
+    "previousEventId": 10,
+    "stateExitedEventDetails": {
+      "name": "Check Identity",
+      "output": "{\"identity\":{\"approved\":true,\"message\":\"identity validation passed\"}}",
+      "outputDetails": { "truncated": false }
+    },
+    "timestamp": "2022-02-19T00:27:48.375Z",
+    "type": "TaskStateExited"
+  },
+  {
+    "id": 12,
+    "previousEventId": 8,
+    "taskSucceededEventDetails": {
+      "output": "{\"address\":{\"approved\":true,\"message\":\"address validation passed\"}}",
+      "outputDetails": { "truncated": false },
+      "resource": "invoke",
+      "resourceType": "lambda"
+    },
+    "timestamp": "2022-02-19T00:27:48.376Z",
+    "type": "TaskSucceeded"
+  },
+  {
+    "id": 13,
+    "previousEventId": 12,
+    "stateExitedEventDetails": {
+      "name": "Check Address",
+      "output": "{\"address\":{\"approved\":true,\"message\":\"address validation passed\"}}",
+      "outputDetails": { "truncated": false }
+    },
+    "timestamp": "2022-02-19T00:27:48.376Z",
+    "type": "TaskStateExited"
+  },
+  {
+    "id": 14,
+    "previousEventId": 13,
+    "timestamp": "2022-02-19T00:27:48.393Z",
+    "type": "ParallelStateSucceeded"
+  },
+  {
+    "id": 15,
+    "previousEventId": 14,
+    "stateExitedEventDetails": {
+      "name": "Validation",
+      "output": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"},\"results\":{\"addressResult\":{\"approved\":true,\"message\":\"address validation passed\"},\"identityResult\":{\"approved\":true,\"message\":\"identity validation passed\"}}}",
+      "outputDetails": { "truncated": false }
+    },
+    "timestamp": "2022-02-19T00:27:48.395Z",
+    "type": "ParallelStateExited"
+  },
+  {
+    "id": 16,
+    "previousEventId": 15,
+    "stateEnteredEventDetails": {
+      "input": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"},\"results\":{\"addressResult\":{\"approved\":true,\"message\":\"address validation passed\"},\"identityResult\":{\"approved\":true,\"message\":\"identity validation passed\"}}}",
+      "inputDetails": { "truncated": false },
+      "name": "DetectSentiment"
+    },
+    "timestamp": "2022-02-19T00:27:48.398Z",
+    "type": "TaskStateEntered"
+  },
+  {
+    "id": 17,
+    "previousEventId": 16,
+    "taskScheduledEventDetails": {
+      "parameters": "{\"LanguageCode\":\"en\",\"Text\":\"I am glad to sign-up for this service. Looking forward to different options.\"}",
+      "region": "us-east-1",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk"
+    },
+    "timestamp": "2022-02-19T00:27:48.399Z",
+    "type": "TaskScheduled"
+  },
+  {
+    "id": 18,
+    "previousEventId": 17,
+    "taskStartedEventDetails": {
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk"
+    },
+    "timestamp": "2022-02-19T00:27:48.399Z",
+    "type": "TaskStarted"
+  },
+  {
+    "id": 19,
+    "previousEventId": 18,
+    "taskSucceededEventDetails": {
+      "output": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"},\"results\":{\"sentimentAnalysis\":{\"Sentiment\":\"POSITIVE\",\"SentimentScore\":{\"Mixed\":1.2647535E-4,\"Negative\":8.031699E-5,\"Neutral\":0.0051454515,\"Positive\":0.9946478}}}}",
+      "outputDetails": { "truncated": false },
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk"
+    },
+    "timestamp": "2022-02-19T00:27:48.401Z",
+    "type": "TaskSucceeded"
+  },
+  {
+    "id": 20,
+    "previousEventId": 19,
+    "stateExitedEventDetails": {
+      "name": "DetectSentiment",
+      "output": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"},\"results\":{\"sentimentAnalysis\":{\"Sentiment\":\"POSITIVE\",\"SentimentScore\":{\"Mixed\":1.2647535E-4,\"Negative\":8.031699E-5,\"Neutral\":0.0051454515,\"Positive\":0.9946478}}}}",
+      "outputDetails": { "truncated": false }
+    },
+    "timestamp": "2022-02-19T00:27:48.401Z",
+    "type": "TaskStateExited"
+  },
+  {
+    "id": 21,
+    "previousEventId": 20,
+    "stateEnteredEventDetails": {
+      "input": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"},\"results\":{\"sentimentAnalysis\":{\"Sentiment\":\"POSITIVE\",\"SentimentScore\":{\"Mixed\":1.2647535E-4,\"Negative\":8.031699E-5,\"Neutral\":0.0051454515,\"Positive\":0.9946478}}}}",
+      "inputDetails": { "truncated": false },
+      "name": "Is Positive Sentiment?"
+    },
+    "timestamp": "2022-02-19T00:27:48.402Z",
+    "type": "ChoiceStateEntered"
+  },
+  {
+    "id": 22,
+    "previousEventId": 21,
+    "stateExitedEventDetails": {
+      "name": "Is Positive Sentiment?",
+      "output": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"},\"results\":{\"sentimentAnalysis\":{\"Sentiment\":\"POSITIVE\",\"SentimentScore\":{\"Mixed\":1.2647535E-4,\"Negative\":8.031699E-5,\"Neutral\":0.0051454515,\"Positive\":0.9946478}}}}",
+      "outputDetails": { "truncated": false }
+    },
+    "timestamp": "2022-02-19T00:27:48.403Z",
+    "type": "ChoiceStateExited"
+  },
+  {
+    "id": 23,
+    "previousEventId": 22,
+    "stateEnteredEventDetails": {
+      "input": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"},\"results\":{\"sentimentAnalysis\":{\"Sentiment\":\"POSITIVE\",\"SentimentScore\":{\"Mixed\":1.2647535E-4,\"Negative\":8.031699E-5,\"Neutral\":0.0051454515,\"Positive\":0.9946478}}}}",
+      "inputDetails": { "truncated": false },
+      "name": "Add to FollowUp"
+    },
+    "timestamp": "2022-02-19T00:27:48.403Z",
+    "type": "TaskStateEntered"
+  },
+  {
+    "id": 24,
+    "previousEventId": 23,
+    "taskScheduledEventDetails": {
+      "parameters": "{\"Item\":{\"PK\":{\"S\":\"jdoe@example.com\"}},\"TableName\":\"FollowUpTable\"}",
+      "region": "us-east-1",
+      "resource": "putItem",
+      "resourceType": "dynamodb"
+    },
+    "timestamp": "2022-02-19T00:27:48.404Z",
+    "type": "TaskScheduled"
+  },
+  {
+    "id": 25,
+    "previousEventId": 24,
+    "taskStartedEventDetails": {
+      "resource": "putItem",
+      "resourceType": "dynamodb"
+    },
+    "timestamp": "2022-02-19T00:27:48.404Z",
+    "type": "TaskStarted"
+  },
+  {
+    "id": 26,
+    "previousEventId": 25,
+    "taskSucceededEventDetails": {
+      "output": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"},\"results\":{\"dbUpdateStatusCode\":200}}",
+      "outputDetails": { "truncated": false },
+      "resource": "putItem",
+      "resourceType": "dynamodb"
+    },
+    "timestamp": "2022-02-19T00:27:48.405Z",
+    "type": "TaskSucceeded"
+  },
+  {
+    "id": 27,
+    "previousEventId": 26,
+    "stateExitedEventDetails": {
+      "name": "Add to FollowUp",
+      "output": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"},\"results\":{\"dbUpdateStatusCode\":200}}",
+      "outputDetails": { "truncated": false }
+    },
+    "timestamp": "2022-02-19T00:27:48.406Z",
+    "type": "TaskStateExited"
+  },
+  {
+    "id": 28,
+    "previousEventId": 27,
+    "stateEnteredEventDetails": {
+      "input": "{\"data\":{\"firstname\":\"Jane\",\"lastname\":\"Doe\",\"identity\":{\"email\":\"jdoe@example.com\",\"ssn\":\"123-45-6789\"},\"address\":{\"street\":\"123 Main St\",\"city\":\"Columbus\",\"state\":\"OH\",\"zip\":\"43219\"},\"comments\":\"I am glad to sign-up for this service. Looking forward to different options.\"},\"results\":{\"dbUpdateStatusCode\":200}}",
+      "inputDetails": { "truncated": false },
+      "name": "CustomerAddedToFollowup"
+    },
+    "timestamp": "2022-02-19T00:27:48.406Z",
+    "type": "TaskStateEntered"
+  },
+  {
+    "id": 29,
+    "previousEventId": 28,
+    "taskScheduledEventDetails": {
+      "parameters": "{\"Entries\":[{\"Detail\":{\"Message\":\"Customer Added for follow up\",\"EmailAddress\":\"jdoe@example.com\"},\"DetailType\":\"CustomerAdded\",\"Source\":\"LocalTestingSource\"}]}",
+      "region": "us-east-1",
+      "resource": "putEvents",
+      "resourceType": "events"
+    },
+    "timestamp": "2022-02-19T00:27:48.407Z",
+    "type": "TaskScheduled"
+  },
+  {
+    "id": 30,
+    "previousEventId": 29,
+    "taskStartedEventDetails": {
+      "resource": "putEvents",
+      "resourceType": "events"
+    },
+    "timestamp": "2022-02-19T00:27:48.407Z",
+    "type": "TaskStarted"
+  },
+  {
+    "id": 31,
+    "previousEventId": 30,
+    "taskSucceededEventDetails": {
+      "output": "{\"StatusCode\":200,\"Payload\":{\"statusCode\":200}}",
+      "outputDetails": { "truncated": false },
+      "resource": "putEvents",
+      "resourceType": "events"
+    },
+    "timestamp": "2022-02-19T00:27:48.407Z",
+    "type": "TaskSucceeded"
+  },
+  {
+    "id": 32,
+    "previousEventId": 31,
+    "stateExitedEventDetails": {
+      "name": "CustomerAddedToFollowup",
+      "output": "{\"StatusCode\":200,\"Payload\":{\"statusCode\":200}}",
+      "outputDetails": { "truncated": false }
+    },
+    "timestamp": "2022-02-19T00:27:48.407Z",
+    "type": "TaskStateExited"
+  },
+  {
+    "executionSucceededEventDetails": {
+      "output": "{\"StatusCode\":200,\"Payload\":{\"statusCode\":200}}",
+      "outputDetails": { "truncated": false }
+    },
+    "id": 33,
+    "previousEventId": 32,
+    "timestamp": "2022-02-19T00:27:48.408Z",
+    "type": "ExecutionSucceeded"
+  }
+]
