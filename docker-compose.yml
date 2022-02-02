@@ -1,0 +1,14 @@
+# docker run --rm -p 8083:8083 
+# --mount type=bind,readonly,source=/Users/fukuyamaken/dev/src/github.com/kenfdev/step-functions-testing/data/MockConfigFile.json,destination=/home/StepFunctionsLocal/MockConfigFile.json 
+# -e SFN_MOCK_CONFIG="/home/StepFunctionsLocal/MockConfigFile.json" amazon/aws-stepfunctions-local
+
+version: '3'
+services:
+  stepfunctions:
+    image: amazon/aws-stepfunctions-local
+    environment:
+      SFN_MOCK_CONFIG: /home/StepFunctionsLocal/MockConfigFile.json
+    ports:
+      - "8083:8083"
+    volumes:
+      - "./data/MockConfigFile.json:/home/StepFunctionsLocal/MockConfigFile.json"

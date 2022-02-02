@@ -1,12 +1,24 @@
-# Welcome to your CDK TypeScript Construct Library project!
+# PoC Step Functions integration testing with Step Functions Local
 
-You should explore the contents of this project. It demonstrates a CDK Construct Library that includes a construct (`StepFunctionsTesting`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+credits got to the following repository:
 
-The construct defines an interface (`StepFunctionsTestingProps`) to configure the visibility timeout of the queue.
+https://github.com/nathanagez/aws-cdk-state-machine-asl
 
-## Useful commands
+This repository takes a step further and creates the CDK within Jest and sends the ASL to Step Functions Local via the AWS SDK.
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
+- [Using Mocked Service Integrations - AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/sfn-local-test-sm-exec.html)
+
+## How to run the test
+
+
+```
+# install the dependencies
+npm install # whatsoever
+
+# Spin up the Step Functions Local
+docker-compose up
+
+# run the test
+npm test
+```
+
