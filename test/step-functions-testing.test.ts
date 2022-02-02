@@ -16,25 +16,25 @@ describe('StateMachine', () => {
   let stateMachineArn = '';
 
   beforeAll(async () => {
+    // create the stack to generate a Cfn Stack
     const stack = new cdk.Stack();
-
     new StateMachineConstruct(stack, 'StateMachine');
-
     const cfnStackJson = Template.fromStack(stack).toJSON();
+    // extract the Asl part
     const asls = extractStateMachineAsls(cfnStackJson);
-
     // console.log(JSON.stringify(asls));
 
+    // create the state machine
     const createStateMachineCommand = new CreateStateMachineCommand({
       name: 'LambdaSQSIntegration',
       definition: asls[0],
       roleArn:
         'arn:aws:iam::123456789012:role/service-role/LambdaSQSIntegration',
     });
-
     const result = await client.send(createStateMachineCommand);
     // console.log(result);
 
+    // save to clean up later on
     stateMachineArn = result.stateMachineArn!;
   });
 
