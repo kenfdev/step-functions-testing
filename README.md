@@ -6,8 +6,6 @@ https://github.com/nathanagez/aws-cdk-state-machine-asl
 
 This repository takes a step further and creates the CDK within Jest and sends the ASL to Step Functions Local via the AWS SDK.
 
-- [Using Mocked Service Integrations - AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/sfn-local-test-sm-exec.html)
-
 ## How to run the test
 
 
@@ -22,3 +20,8 @@ docker-compose up
 npm test
 ```
 
+## Reference
+
+- [Using Mocked Service Integrations - AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/sfn-local-test-sm-exec.html)
+- [Mocking service integrations with AWS Step Functions Local | AWS Compute Blog](https://aws.amazon.com/jp/blogs/compute/mocking-service-integrations-with-aws-step-functions-local/)
+- [aws-stepfunctions-examples/sam/app-local-testing-mock-config at main · aws-samples/aws-stepfunctions-examples](https://github.com/aws-samples/aws-stepfunctions-examples/tree/main/sam/app-local-testing-mock-config/)
