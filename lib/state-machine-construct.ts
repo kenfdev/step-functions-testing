@@ -6,11 +6,25 @@ import { TaskInput } from 'aws-cdk-lib/aws-stepfunctions';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
 import { Duration } from 'aws-cdk-lib';
 
+type StateMachineProps = {
+  stateMachineName?: string;
+  lambdaStateName?: string;
+  sqsStateName?: string;
+  retryInterval?: Duration;
+};
+
 export class StateMachineConstruct extends Construct {
-  constructor(scope: Construct, id: string) {
+  constructor(scope: Construct, id: string, props: StateMachineProps = {}) {
     super(scope, id);
 
-    const lambdaState = new tasks.LambdaInvoke(this, 'LambdaState', {
+    const {
+      lambdaStateName = 'LambdaState',
+      sqsStateName = 'SQSState',
+      stateMachineName,
+      retryInterval = Duration.seconds(2),
+    } = props;
+
+    const lambdaState = new tasks.LambdaInvoke(this, lambdaStateName, {
       lambdaFunction: lambda.Function.fromFunctionArn(
         this,
         'lambdaInvoke',
@@ -25,10 +39,10 @@ export class StateMachineConstruct extends Construct {
       errors: ['States.ALL'],
       backoffRate: 2,
       maxAttempts: 3,
-      interval: Duration.seconds(2),
+      interval: props.retryInterval,
     });
 
-    const sqsState = new tasks.SqsSendMessage(this, 'SQSState', {
+    const sqsState = new tasks.SqsSendMessage(this, sqsStateName, {
       queue: sqs.Queue.fromQueueArn(
         this,
         'sqs',
@@ -39,7 +53,8 @@ export class StateMachineConstruct extends Construct {
 
     const definition = lambdaState.next(sqsState);
 
-    const sm = new sfn.StateMachine(this, 'StateMachine', {
+    const sm = new sfn.StateMachine(this, 'SampleStateMachine', {
+      stateMachineName,
       definition,
     });
   }

@@ -8,15 +8,11 @@ This repository takes a step further and creates the CDK within Jest and sends t
 
 ## How to run the test
 
-
 ```
 # install the dependencies
 npm install # whatsoever
 
-# Spin up the Step Functions Local
-docker-compose up
-
-# run the test
+# run the test(make sure you have docker installed)
 npm test
 ```
 
