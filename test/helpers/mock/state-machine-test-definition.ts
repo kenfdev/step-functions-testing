@@ -29,6 +29,10 @@ export class StateMachineTestDefinition implements JsonSerializable {
     return this;
   }
 
+  collectTestCase(): StateMachineTestCase[] {
+    return Object.values(this._testCaseDefinitions);
+  }
+
   collectMockedResponses(): MockedResponse[] {
     return Object.keys(this._testCaseDefinitions).reduce((acc, key) => {
       return acc.concat(

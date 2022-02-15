@@ -50,13 +50,10 @@ export class SalesLeadsStateMachineConstruct extends Construct {
           'CheckIdentityFunction',
           'arn:aws:lambda:us-west-2:123456789012:function:check-identity-function'
         ),
-        inputPath: '$.data.identity',
-        payload: TaskInput.fromObject({
-          'Payload.$': '$',
-          FunctionName: 'CheckIdentityFunction',
-        }),
+        inputPath: JsonPath.stringAt('$.data.identity'),
+        payload: TaskInput.fromJsonPathAt('$'),
         resultSelector: {
-          'indentity': JsonPath.stringToJson('$.Payload.body'),
+          identity: JsonPath.stringToJson(JsonPath.stringAt('$.Payload.body')),
         },
         retryOnServiceExceptions: false,
       }
@@ -82,12 +79,9 @@ export class SalesLeadsStateMachineConstruct extends Construct {
           'arn:aws:lambda:us-west-2:123456789012:function:check-address-function'
         ),
         inputPath: '$.data.address',
-        payload: TaskInput.fromObject({
-          'Payload.$': '$',
-          FunctionName: 'CheckIdentityFunction',
-        }),
+        payload: TaskInput.fromJsonPathAt('$'),
         resultSelector: {
-          'address.$': JsonPath.stringToJson('$.Payload.body'),
+          address: JsonPath.stringToJson(JsonPath.stringAt('$.Payload.body')),
         },
         retryOnServiceExceptions: false,
       }
@@ -137,10 +131,10 @@ export class SalesLeadsStateMachineConstruct extends Construct {
 
     const validation = new sfn.Parallel(this, validationStateName, {
       resultSelector: {
-        'identityResult.$': '$[0].identity',
-        'addressResult.$': '$[1].address',
+        identityResult: JsonPath.stringAt('$[0].identity'),
+        addressResult: JsonPath.stringAt('$[1].address'),
       },
-      resultPath: '$.results',
+      resultPath: JsonPath.stringAt('$.results'),
     });
 
     const detectSentimentState = new sfn.CustomState(
@@ -152,12 +146,12 @@ export class SalesLeadsStateMachineConstruct extends Construct {
           Resource: 'arn:aws:states:::aws-sdk:comprehend:detectSentiment',
           Parameters: {
             LanguageCode: 'en',
-            'Text.$': '$.data.comments',
+            'Text.$': JsonPath.stringAt('$.data.comments'),
           },
           ResultSelector: {
-            'sentimentAnalysis.$': '$',
+            'sentimentAnalysis.$': JsonPath.stringAt('$'),
           },
-          ResultPath: '$.results',
+          ResultPath: JsonPath.stringAt('$.results'),
           Retry: [
             {
               ErrorEquals: ['InternalServerException'],
@@ -178,7 +172,7 @@ export class SalesLeadsStateMachineConstruct extends Construct {
           {
             detail: TaskInput.fromObject({
               Message: 'Negative Sentiment Detected',
-              'Data.$': '$.data',
+              Data: JsonPath.stringAt('$.data'),
             }),
             detailType: 'NegativeSentiment',
             source: 'LocalTestingSource',
@@ -198,6 +192,12 @@ export class SalesLeadsStateMachineConstruct extends Construct {
             JsonPath.stringAt('$.identity.email')
           ),
         },
+        resultSelector: {
+          dbUpdateStatusCode: JsonPath.stringAt(
+            '$.SdkHttpMetadata.HttpStatusCode'
+          ),
+        },
+        resultPath: JsonPath.stringAt('$.results'),
       }
     );
 
@@ -210,7 +210,7 @@ export class SalesLeadsStateMachineConstruct extends Construct {
           {
             detail: TaskInput.fromObject({
               Message: 'Customer Added for follow up',
-              'EmailAddress.$': JsonPath.stringAt('$.identity.email'),
+              EmailAddress: JsonPath.stringAt('$.identity.email'),
             }),
             detailType: 'CustomerAdded',
             source: 'LocalTestingSource',
@@ -235,7 +235,7 @@ export class SalesLeadsStateMachineConstruct extends Construct {
         isPositiveSentimentState
           .when(
             sfn.Condition.stringEquals(
-              '$.results.sentimentAnalysis.Sentiment',
+              JsonPath.stringAt('$.results.sentimentAnalysis.Sentiment'),
               'POSITIVE'
             ),
             addToFollowUpState.next(customerAddedToFollowupState)

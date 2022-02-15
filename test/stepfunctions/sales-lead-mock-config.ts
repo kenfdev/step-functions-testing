@@ -7,7 +7,6 @@ import {
 
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { StateMachineConstruct } from '../../lib/state-machine-construct';
 import { extractStateMachineAsls } from '../helpers/stepfunctions';
 import { Duration } from 'aws-cdk-lib';
 import { SalesLeadsStateMachineConstruct } from '../../lib/sales-leads-state-machine-construct';
@@ -21,7 +20,7 @@ type LambdaResponse = {
   };
 };
 type DynamoResponse = {
-  SdkHttpMetaData: {
+  SdkHttpMetadata: {
     HttpStatusCode: number;
   };
 };
@@ -66,7 +65,10 @@ export const createConfig = () => {
     StatusCode: 200,
     Payload: {
       statusCode: 200,
-      body: '{"approved": true, "message": "identity validation passed"}',
+      body: JSON.stringify({
+        approved: true,
+        message: 'identity validation passed',
+      }),
     },
   });
 
@@ -76,14 +78,17 @@ export const createConfig = () => {
     StatusCode: 200,
     Payload: {
       statusCode: 200,
-      body: '{"approved": true, "message": "address validation passed"}',
+      body: JSON.stringify({
+        approved: true,
+        message: 'address validation passed',
+      }),
     },
   });
 
   const addToFollowUpSuccess = new MockedResponse(
     'AddToFollowUpSuccess'
   ).return<DynamoResponse>({
-    SdkHttpMetaData: {
+    SdkHttpMetadata: {
       HttpStatusCode: 200,
     },
   });
@@ -252,6 +257,5 @@ export const createConfig = () => {
   return {
     config,
     aslDefinition: asls[0],
-    testDefinition: stateMachineTestDefinition,
   };
 };

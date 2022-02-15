@@ -67,7 +67,6 @@ function ref(value: any) {
 export const createStepFunctionsLocalContainer = async (
   mockConfigPath: string
 ) => {
-  console.log('spinning up container');
   const container = await new GenericContainer('amazon/aws-stepfunctions-local')
     .withExposedPorts(8083)
     .withBindMount(
@@ -85,7 +84,6 @@ export const createStepFunctionsLocalContainer = async (
     // .withEnv('AWS_SESSION_TOKEN', process.env.AWS_SESSION_TOKEN as string)
     // .withEnv('AWS_DEFAULT_REGION', process.env.AWS_REGION)
     .start();
-  console.log('container created');
   return container;
 };
 

@@ -2,11 +2,15 @@ import { JsonSerializable } from '.';
 import { MockedResponse } from './response';
 import { StateMachineTestDefinition } from './state-machine-test-definition';
 
-type StateMachineTestDefinitions = {
-  [key: string]: StateMachineTestDefinition;
-};
 export class StepFunctionsMockConfig implements JsonSerializable {
-  private stateMachineTestDefinitions: StateMachineTestDefinitions = {};
+  private stateMachineTestDefinitions: Record<
+    string,
+    StateMachineTestDefinition
+  > = {};
+
+  collectStateMachineTestDefinitions(): StateMachineTestDefinition[] {
+    return Object.values(this.stateMachineTestDefinitions);
+  }
 
   addTestDefinition(test: StateMachineTestDefinition) {
     if (
