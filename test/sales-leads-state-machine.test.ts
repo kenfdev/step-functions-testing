@@ -45,7 +45,7 @@ for (const testDefinition of config.collectStateMachineTestDefinitions()) {
       await tmpDir.cleanup();
     });
 
-    for (const testCase of Object.values(testDefinition.testCaseDefinitions)) {
+    for (const testCase of testDefinition.collectTestCase()) {
       test(
         testCase.name,
         async () => {
@@ -59,8 +59,10 @@ for (const testDefinition of config.collectStateMachineTestDefinitions()) {
           const { events = [] } = await client.getExecutionHistory(
             startExecutionResponse.executionArn!
           );
+          console.warn(JSON.stringify(events));
 
           for (const e of events) {
+            e.stateEnteredEventDetails?.name;
             expect(e).toMatchSnapshot({
               timestamp: expect.anything(),
             });

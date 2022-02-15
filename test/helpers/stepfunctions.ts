@@ -133,6 +133,7 @@ export class SFNClientWrapper {
   async getExecutionHistory(executionArn: string) {
     const getExecutionHistoryCmd = new GetExecutionHistoryCommand({
       executionArn,
+      maxResults: 1000,
     });
     return await this.client.send(getExecutionHistoryCmd);
   }
