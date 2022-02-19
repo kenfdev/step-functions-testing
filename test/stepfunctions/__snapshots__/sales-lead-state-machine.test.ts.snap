@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LocalTesting HappyPathTest 1`] = `
+exports[`SalesLeasStateMachine LocalTesting HappyPathTest 1`] = `
 Map {
   "Validation" => Array [
     Object {
