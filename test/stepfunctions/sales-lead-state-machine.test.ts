@@ -287,6 +287,27 @@ const stateMachineTestDefinition = new StateMachineTestDefinition(
         stateNames.validationExceptionStateName,
         validationExceptionPutEventSuccess
       )
+  )
+  .addTestCase(
+    new StateMachineTestCase<StateName>('RetryOnServiceExceptionTest')
+      .withInput(input)
+      .addMockedState(
+        stateNames.checkIdentityStateName,
+        checkIdentityLambdaMockedSuccess
+      )
+      .addMockedState(
+        stateNames.checkAddressStateName,
+        checkAddressLambdaMockedSuccess
+      )
+      .addMockedState(
+        stateNames.detectSentimentStateName,
+        detectSentimentRetryOnErrorWithSuccess
+      )
+      .addMockedState(stateNames.addToFollowUpStateName, addToFollowUpSuccess)
+      .addMockedState(
+        stateNames.customerAddedToFollowupStateName,
+        customerAddedToFollowupSuccess
+      )
   );
 
 const config = new StepFunctionsMockConfig();
@@ -312,6 +333,6 @@ const cfnStackJson = Template.fromStack(stack).toJSON();
 const asls = extractStateMachineAsls(cfnStackJson);
 
 describe(
-  'SalesLeasStateMachine',
+  'SalesLeadsStateMachine',
   createJestTestFromMockConfig(config, asls[0])
 );
