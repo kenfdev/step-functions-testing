@@ -5,7 +5,7 @@ Object {
   "LambdaState": Array [
     Object {
       "detail": Object {
-        "input": "{\\"hoge\\":\\"moge\\"}",
+        "input": "{}",
         "inputDetails": Object {
           "truncated": false,
         },
@@ -16,7 +16,7 @@ Object {
     Object {
       "detail": Object {
         "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{\\"hoge\\":\\"moge\\"}}}",
+        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
         "region": "us-east-1",
         "resource": "invoke",
         "resourceType": "lambda",
