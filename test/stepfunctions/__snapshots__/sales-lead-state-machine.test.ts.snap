@@ -147,3 +147,37 @@ Map {
   ],
 }
 `;
+
+exports[`SalesLeasStateMachine LocalTesting ValidationExceptionCatchTest 1`] = `
+Map {
+  "Validation" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"Error\\":\\"CustomAddressValidationError\\",\\"Cause\\":\\"Address Validation Exception\\"}",
+    },
+  ],
+  "Check Identity" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+    Object {
+      "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+    },
+  ],
+  "Check Address" => Array [
+    Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+    },
+  ],
+  "ValidationException" => Array [
+    Object {
+      "input": "{\\"Error\\":\\"CustomAddressValidationError\\",\\"Cause\\":\\"Address Validation Exception\\"}",
+    },
+    Object {
+      "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+    },
+  ],
+}
+`;

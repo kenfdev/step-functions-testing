@@ -271,6 +271,22 @@ const stateMachineTestDefinition = new StateMachineTestDefinition(
         stateNames.customValidationFailedStateName,
         customValidationFailedPutEventSuccess
       )
+  )
+  .addTestCase(
+    new StateMachineTestCase<StateName>('ValidationExceptionCatchTest')
+      .withInput(input)
+      .addMockedState(
+        stateNames.checkIdentityStateName,
+        checkIdentityLambdaMockedSuccess
+      )
+      .addMockedState(
+        stateNames.checkAddressStateName,
+        checkAddressLambdaMockedThrowExceptionSuccess
+      )
+      .addMockedState(
+        stateNames.validationExceptionStateName,
+        validationExceptionPutEventSuccess
+      )
   );
 
 const config = new StepFunctionsMockConfig();
