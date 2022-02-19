@@ -15,6 +15,7 @@
     "@types/node": "10.17.27",
     "aws-cdk": "2.10.0",
     "jest": "^26.4.2",
+    "stepfunctions-testing": "^0.1.0",
     "testcontainers": "^8.2.0",
     "tmp-promise": "^3.0.3",
     "ts-jest": "^26.2.0",

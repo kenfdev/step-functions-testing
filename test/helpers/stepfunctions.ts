@@ -8,7 +8,10 @@ import {
   StartExecutionCommand,
 } from '@aws-sdk/client-sfn';
 import { GenericContainer } from 'testcontainers';
-import { StateMachineTestCase, StepFunctionsMockConfig } from './mock';
+import {
+  StateMachineTestCase,
+  StepFunctionsMockConfig,
+} from 'stepfunctions-testing';
 import * as tmp from 'tmp-promise';
 import { promises as fs } from 'fs';
 import { StartedTestContainer } from 'testcontainers';
@@ -150,6 +153,64 @@ export class SFNClientWrapper {
   }
 }
 
+const typeMaps = {
+  ActivityFailed: 'activityFailedEventDetails',
+  ActivityScheduled: 'activityScheduledEventDetails',
+  ActivityScheduleFailed: 'activityScheduleFailedEventDetails',
+  ActivityStarted: 'activityStartedEventDetails',
+  ActivitySucceeded: 'activitySucceededEventDetails',
+  ActivityTimedOut: 'activityTimedOutEventDetails',
+  ChoiceStateEntered: 'stateEnteredEventDetails',
+  ChoiceStateExited: 'stateExitedEventDetails',
+  ExecutionAborted: 'executionAbortedEventDetails',
+  ExecutionFailed: 'executionFailedEventDetails',
+  ExecutionStarted: 'executionStartedEventDetails',
+  ExecutionSucceeded: 'executionSucceededEventDetails',
+  ExecutionTimedOut: 'executionTimedOutEventDetails',
+  FailStateEntered: '',
+  LambdaFunctionFailed: 'lambdaFunctionFailedEventDetails',
+  LambdaFunctionScheduled: 'lambdaFunctionScheduledEventDetails',
+  LambdaFunctionScheduleFailed: 'lambdaFunctionScheduleFailedEventDetails',
+  LambdaFunctionStarted: '',
+  LambdaFunctionStartFailed: 'lambdaFunctionStartFailedEventDetails',
+  LambdaFunctionSucceeded: 'lambdaFunctionSucceededEventDetails',
+  LambdaFunctionTimedOut: 'lambdaFunctionTimedOutEventDetails',
+  MapIterationAborted: 'mapIterationAbortedEventDetails',
+  MapIterationFailed: 'mapIterationFailedEventDetails',
+  MapIterationStarted: 'mapIterationStartedEventDetails',
+  MapIterationSucceeded: 'mapIterationSucceededEventDetails',
+  MapStateAborted: '',
+  MapStateEntered: '', // TODO: probably maps to stateEnteredEventDetails
+  MapStateExited: '', // TODO: probably maps to stateExitedEventDetails
+  MapStateFailed: '',
+  MapStateStarted: 'mapStateStartedEventDetails',
+  MapStateSucceeded: '',
+  ParallelStateAborted: '',
+  ParallelStateEntered: 'stateEnteredEventDetails',
+  ParallelStateExited: 'stateExitedEventDetails',
+  ParallelStateFailed: '',
+  ParallelStateStarted: '',
+  ParallelStateSucceeded: '',
+  PassStateEntered: '',
+  PassStateExited: '',
+  SucceedStateEntered: '',
+  SucceedStateExited: '',
+  TaskFailed: 'taskFailedEventDetails',
+  TaskScheduled: 'taskScheduledEventDetails',
+  TaskStarted: 'taskStartedEventDetails',
+  TaskStartFailed: 'taskStartFailedEventDetails',
+  TaskStateAborted: '',
+  TaskStateEntered: 'stateEnteredEventDetails',
+  TaskStateExited: 'stateExitedEventDetails',
+  TaskSubmitFailed: 'taskSubmitFailedEventDetails',
+  TaskSubmitted: 'taskSubmittedEventDetails',
+  TaskSucceeded: 'taskSucceededEventDetails',
+  TaskTimedOut: 'taskTimedOutEventDetails',
+  WaitStateAborted: '',
+  WaitStateEntered: '',
+  WaitStateExited: '',
+} as { [key: string]: string };
+
 export const createJestTestFromMockConfig = (
   config: StepFunctionsMockConfig,
   aslDefinition: string
@@ -179,7 +240,7 @@ export const createJestTestFromMockConfig = (
 
           // save for later usage
           stateMachineArn = result.stateMachineArn!;
-        });
+        }, 30_000);
 
         afterAll(async () => {
           await container?.stop();
@@ -205,45 +266,54 @@ export const createJestTestFromMockConfig = (
               const { events = [] } = await client.getExecutionHistory(
                 startExecutionResponse.executionArn!
               );
-              // console.warn(JSON.stringify(events));
 
-              const resultsMap = new Map<string, any[]>();
-              for (const e of events) {
-                if (e.stateEnteredEventDetails?.name) {
-                  const val = resultsMap.get(e.stateEnteredEventDetails.name);
-                  if (val) {
-                    resultsMap.set(e.stateEnteredEventDetails.name, [
-                      ...val,
-                      { input: e.stateEnteredEventDetails.input },
-                    ]);
-                  } else {
-                    resultsMap.set(e.stateEnteredEventDetails.name, [
-                      { input: e.stateEnteredEventDetails.input },
-                    ]);
-                  }
-                  // console.warn(JSON.stringify(e));
-                  // expect(e).toMatchSnapshot({
-                  //   timestamp: expect.anything(),
-                  // });
+              // TODO: think of an efficient way to do this
+              const nextEvents = events.reduce((obj, e) => {
+                obj[e.previousEventId!.toString()] = e;
+                return obj;
+              }, {} as { [id: string]: any });
+              // console.log('next events', JSON.stringify(nextEvents));
+
+              const stateEnteredEventDetails = events.filter(
+                (e) =>
+                  e.type !== 'ParallelStateEntered' && // TODO: think of a better way to catch parallels
+                  e.stateEnteredEventDetails &&
+                  e.stateEnteredEventDetails.name !== '' &&
+                  e.stateEnteredEventDetails.name !== undefined &&
+                  e.stateEnteredEventDetails.name !== null
+              );
+
+              // console.log(JSON.stringify(stateEnteredEventDetails));
+
+              let stateEvents = {} as { [key: string]: any };
+              for (const stateEnteredEventDetail of stateEnteredEventDetails) {
+                let events = [];
+
+                let nextEventDetail = stateEnteredEventDetail;
+                // console.log('next event', nextEventDetail);
+
+                while (nextEventDetail !== undefined) {
+                  // console.log('nextEventDetail', nextEventDetail);
+                  const key = typeMaps[nextEventDetail.type as string];
+                  events.push({
+                    type: nextEventDetail.type,
+                    detail: (nextEventDetail as any)[key],
+                  });
+                  if (
+                    // TODO: very fragile way to detect end of state
+                    nextEventDetail.type === 'TaskStateExited' ||
+                    nextEventDetail.type === 'ChoiceStateExited'
+                  )
+                    break;
+
+                  nextEventDetail = nextEvents[nextEventDetail.id!.toString()];
                 }
-                if (e.stateExitedEventDetails?.name) {
-                  const val = resultsMap.get(e.stateExitedEventDetails.name);
-                  if (val) {
-                    resultsMap.set(e.stateExitedEventDetails.name, [
-                      ...val,
-                      { output: e.stateExitedEventDetails.output },
-                    ]);
-                  } else {
-                    resultsMap.set(e.stateExitedEventDetails.name, [
-                      { output: e.stateExitedEventDetails.output },
-                    ]);
-                  }
-                }
-                // expect(e).toMatchSnapshot({
-                //   timestamp: expect.anything(),
-                // });
+
+                stateEvents[
+                  stateEnteredEventDetail.stateEnteredEventDetails!.name!
+                ] = events;
               }
-              expect(resultsMap).toMatchSnapshot();
+              expect(stateEvents).toMatchSnapshot();
             },
             30_000
           );

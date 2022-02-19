@@ -3,7 +3,7 @@ import {
   StateMachineTestCase,
   StateMachineTestDefinition,
   StepFunctionsMockConfig,
-} from '../helpers/mock';
+} from 'stepfunctions-testing';
 
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
