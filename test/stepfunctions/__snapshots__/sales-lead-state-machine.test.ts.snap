@@ -1,1258 +1,1511 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SalesLeadsStateMachine LocalTesting CustomValidationFailedCatchTest 1`] = `
-Object {
-  "Check Address": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
+Array [
+  Object {
+    "ExecutionStarted": Array [
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "roleArn": "arn:aws:iam::123456789012:role/service-role/LambdaSQSIntegration",
         },
-        "name": "Check Address",
+        "type": "ExecutionStarted",
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\\",\\"Payload\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
+    ],
+    "ParallelStateEnteredValidation": Array [
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "Validation",
         },
-        "resource": "invoke",
-        "resourceType": "lambda",
+        "type": "ParallelStateEntered",
       },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "Check Address",
-        "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
+      Object {
+        "ParallelStateStarted": Array [
+          Object {
+            "detail": undefined,
+            "type": "ParallelStateStarted",
+          },
+          Object {
+            "TaskStateEnteredCheck Address": Array [
+              Object {
+                "detail": Object {
+                  "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+                  "inputDetails": Object {
+                    "truncated": false,
+                  },
+                  "name": "Check Address",
+                },
+                "type": "TaskStateEntered",
+              },
+              Object {
+                "detail": Object {
+                  "heartbeatInSeconds": undefined,
+                  "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\\",\\"Payload\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"}}",
+                  "region": "us-east-1",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                  "timeoutInSeconds": undefined,
+                },
+                "type": "TaskScheduled",
+              },
+              Object {
+                "detail": Object {
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskStarted",
+              },
+              Object {
+                "detail": Object {
+                  "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+                  "outputDetails": Object {
+                    "truncated": false,
+                  },
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskSucceeded",
+              },
+              Object {
+                "detail": Object {
+                  "name": "Check Address",
+                  "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+                  "outputDetails": Object {
+                    "truncated": false,
+                  },
+                },
+                "type": "TaskStateExited",
+              },
+            ],
+            "TaskStateEnteredCheck Identity": Array [
+              Object {
+                "detail": Object {
+                  "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+                  "inputDetails": Object {
+                    "truncated": false,
+                  },
+                  "name": "Check Identity",
+                },
+                "type": "TaskStateEntered",
+              },
+              Object {
+                "detail": Object {
+                  "heartbeatInSeconds": undefined,
+                  "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
+                  "region": "us-east-1",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                  "timeoutInSeconds": undefined,
+                },
+                "type": "TaskScheduled",
+              },
+              Object {
+                "detail": Object {
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskStarted",
+              },
+              Object {
+                "detail": Object {
+                  "cause": "Check Identity Validation Failed",
+                  "error": "CustomValidationError",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskFailed",
+              },
+              Object {
+                "detail": Object {
+                  "heartbeatInSeconds": undefined,
+                  "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
+                  "region": "us-east-1",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                  "timeoutInSeconds": undefined,
+                },
+                "type": "TaskScheduled",
+              },
+              Object {
+                "detail": Object {
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskStarted",
+              },
+              Object {
+                "detail": Object {
+                  "cause": "Check Identity Validation Failed",
+                  "error": "CustomValidationError",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskFailed",
+              },
+              Object {
+                "detail": Object {
+                  "heartbeatInSeconds": undefined,
+                  "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
+                  "region": "us-east-1",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                  "timeoutInSeconds": undefined,
+                },
+                "type": "TaskScheduled",
+              },
+              Object {
+                "detail": Object {
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskStarted",
+              },
+              Object {
+                "detail": Object {
+                  "cause": "Check Identity Validation Failed",
+                  "error": "CustomValidationError",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskFailed",
+              },
+              Object {
+                "detail": Object {
+                  "heartbeatInSeconds": undefined,
+                  "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
+                  "region": "us-east-1",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                  "timeoutInSeconds": undefined,
+                },
+                "type": "TaskScheduled",
+              },
+              Object {
+                "detail": Object {
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskStarted",
+              },
+              Object {
+                "detail": Object {
+                  "cause": "Check Identity Validation Failed",
+                  "error": "CustomValidationError",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskFailed",
+              },
+              Object {
+                "detail": undefined,
+                "type": "ParallelStateFailed",
+              },
+            ],
+          },
+        ],
+        "TaskStateExitedValidation": Array [
+          Object {
+            "detail": Object {
+              "name": "Validation",
+              "output": "{\\"Error\\":\\"CustomValidationError\\",\\"Cause\\":\\"Check Identity Validation Failed\\"}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "TaskStateExited",
+          },
+          Object {
+            "detail": Object {
+              "input": "{\\"Error\\":\\"CustomValidationError\\",\\"Cause\\":\\"Check Identity Validation Failed\\"}",
+              "inputDetails": Object {
+                "truncated": false,
+              },
+              "name": "CustomValidationFailed",
+            },
+            "type": "TaskStateEntered",
+          },
+          Object {
+            "detail": Object {
+              "heartbeatInSeconds": undefined,
+              "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Validation Failed\\"},\\"DetailType\\":\\"ValidationFailed\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
+              "region": "us-east-1",
+              "resource": "putEvents",
+              "resourceType": "events",
+              "timeoutInSeconds": undefined,
+            },
+            "type": "TaskScheduled",
+          },
+          Object {
+            "detail": Object {
+              "resource": "putEvents",
+              "resourceType": "events",
+            },
+            "type": "TaskStarted",
+          },
+          Object {
+            "detail": Object {
+              "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+              "resource": "putEvents",
+              "resourceType": "events",
+            },
+            "type": "TaskSucceeded",
+          },
+          Object {
+            "detail": Object {
+              "name": "CustomValidationFailed",
+              "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "TaskStateExited",
+          },
+          Object {
+            "detail": Object {
+              "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "ExecutionSucceeded",
+          },
+        ],
       },
-      "type": "TaskStateExited",
-    },
-  ],
-  "Check Identity": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "Check Identity",
-      },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Check Identity Validation Failed",
-        "error": "CustomValidationError",
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Check Identity Validation Failed",
-        "error": "CustomValidationError",
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Check Identity Validation Failed",
-        "error": "CustomValidationError",
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Check Identity Validation Failed",
-        "error": "CustomValidationError",
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": undefined,
-      "type": "ParallelStateFailed",
-    },
-  ],
-  "CustomValidationFailed": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"Error\\":\\"CustomValidationError\\",\\"Cause\\":\\"Check Identity Validation Failed\\"}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "CustomValidationFailed",
-      },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Validation Failed\\"},\\"DetailType\\":\\"ValidationFailed\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
-        "region": "us-east-1",
-        "resource": "putEvents",
-        "resourceType": "events",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "putEvents",
-        "resourceType": "events",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "putEvents",
-        "resourceType": "events",
-      },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "CustomValidationFailed",
-        "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "TaskStateExited",
-    },
-  ],
-}
+    ],
+  },
+]
 `;
 
 exports[`SalesLeadsStateMachine LocalTesting HappyPathTest 1`] = `
-Object {
-  "Add to FollowUp": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-        "inputDetails": Object {
-          "truncated": false,
+Array [
+  Object {
+    "ExecutionStarted": Array [
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "roleArn": "arn:aws:iam::123456789012:role/service-role/LambdaSQSIntegration",
         },
-        "name": "Add to FollowUp",
+        "type": "ExecutionStarted",
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"Item\\":{\\"PK\\":{\\"S\\":\\"jdoe@example.com\\"}},\\"TableName\\":\\"FollowUpTable\\"}",
-        "region": "us-east-1",
-        "resource": "putItem",
-        "resourceType": "dynamodb",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "putItem",
-        "resourceType": "dynamodb",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-        "outputDetails": Object {
-          "truncated": false,
+    ],
+    "ParallelStateEnteredValidation": Array [
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "Validation",
         },
-        "resource": "putItem",
-        "resourceType": "dynamodb",
+        "type": "ParallelStateEntered",
       },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "Add to FollowUp",
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
+      Object {
+        "detail": undefined,
+        "type": "ParallelStateStarted",
       },
-      "type": "TaskStateExited",
-    },
-  ],
-  "Check Address": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "Check Address",
+      Object {
+        "TaskStateEnteredCheck Address": Array [
+          Object {
+            "detail": Object {
+              "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+              "inputDetails": Object {
+                "truncated": false,
+              },
+              "name": "Check Address",
+            },
+            "type": "TaskStateEntered",
+          },
+          Object {
+            "detail": Object {
+              "heartbeatInSeconds": undefined,
+              "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\\",\\"Payload\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"}}",
+              "region": "us-east-1",
+              "resource": "invoke",
+              "resourceType": "lambda",
+              "timeoutInSeconds": undefined,
+            },
+            "type": "TaskScheduled",
+          },
+          Object {
+            "detail": Object {
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskStarted",
+          },
+          Object {
+            "detail": Object {
+              "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskSucceeded",
+          },
+          Object {
+            "detail": Object {
+              "name": "Check Address",
+              "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "TaskStateExited",
+          },
+        ],
+        "TaskStateEnteredCheck Identity": Array [
+          Object {
+            "detail": Object {
+              "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+              "inputDetails": Object {
+                "truncated": false,
+              },
+              "name": "Check Identity",
+            },
+            "type": "TaskStateEntered",
+          },
+          Object {
+            "detail": Object {
+              "heartbeatInSeconds": undefined,
+              "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
+              "region": "us-east-1",
+              "resource": "invoke",
+              "resourceType": "lambda",
+              "timeoutInSeconds": undefined,
+            },
+            "type": "TaskScheduled",
+          },
+          Object {
+            "detail": Object {
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskStarted",
+          },
+          Object {
+            "detail": Object {
+              "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskSucceeded",
+          },
+          Object {
+            "detail": Object {
+              "name": "Check Identity",
+              "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "TaskStateExited",
+          },
+        ],
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\\",\\"Payload\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
+    ],
+  },
+  Object {
+    "detail": undefined,
+    "type": "ParallelStateSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "Validation",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskScheduled",
     },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
+    "type": "ParallelStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStarted",
+      "name": "DetectSentiment",
     },
-    Object {
-      "detail": Object {
-        "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "invoke",
-        "resourceType": "lambda",
+    "type": "TaskStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+      "region": "us-east-1",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskSucceeded",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
     },
-    Object {
-      "detail": Object {
-        "name": "Check Address",
-        "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
+    "type": "TaskSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "DetectSentiment",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateExited",
     },
-  ],
-  "Check Identity": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "Check Identity",
+    "type": "TaskStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateEntered",
+      "name": "Is Positive Sentiment?",
     },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
+    "type": "ChoiceStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "name": "Is Positive Sentiment?",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskScheduled",
     },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
+    "type": "ChoiceStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStarted",
+      "name": "Add to FollowUp",
     },
-    Object {
-      "detail": Object {
-        "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "invoke",
-        "resourceType": "lambda",
+    "type": "TaskStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"Item\\":{\\"PK\\":{\\"S\\":\\"jdoe@example.com\\"}},\\"TableName\\":\\"FollowUpTable\\"}",
+      "region": "us-east-1",
+      "resource": "putItem",
+      "resourceType": "dynamodb",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "putItem",
+      "resourceType": "dynamodb",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskSucceeded",
+      "resource": "putItem",
+      "resourceType": "dynamodb",
     },
-    Object {
-      "detail": Object {
-        "name": "Check Identity",
-        "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
+    "type": "TaskSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "Add to FollowUp",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateExited",
     },
-  ],
-  "CustomerAddedToFollowup": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "CustomerAddedToFollowup",
+    "type": "TaskStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateEntered",
+      "name": "CustomerAddedToFollowup",
     },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Customer Added for follow up\\",\\"EmailAddress\\":\\"jdoe@example.com\\"},\\"DetailType\\":\\"CustomerAdded\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
-        "region": "us-east-1",
-        "resource": "putEvents",
-        "resourceType": "events",
-        "timeoutInSeconds": undefined,
+    "type": "TaskStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Customer Added for follow up\\",\\"EmailAddress\\":\\"jdoe@example.com\\"},\\"DetailType\\":\\"CustomerAdded\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
+      "region": "us-east-1",
+      "resource": "putEvents",
+      "resourceType": "events",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "putEvents",
+      "resourceType": "events",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskScheduled",
+      "resource": "putEvents",
+      "resourceType": "events",
     },
-    Object {
-      "detail": Object {
-        "resource": "putEvents",
-        "resourceType": "events",
+    "type": "TaskSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "CustomerAddedToFollowup",
+      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStarted",
     },
-    Object {
-      "detail": Object {
-        "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "putEvents",
-        "resourceType": "events",
+    "type": "TaskStateExited",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskSucceeded",
     },
-    Object {
-      "detail": Object {
-        "name": "CustomerAddedToFollowup",
-        "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "TaskStateExited",
-    },
-  ],
-  "DetectSentiment": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "DetectSentiment",
-      },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-        "region": "us-east-1",
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-      },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "DetectSentiment",
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "TaskStateExited",
-    },
-  ],
-  "Is Positive Sentiment?": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "Is Positive Sentiment?",
-      },
-      "type": "ChoiceStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "name": "Is Positive Sentiment?",
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "ChoiceStateExited",
-    },
-  ],
-}
+    "type": "ExecutionSucceeded",
+  },
+]
 `;
 
 exports[`SalesLeadsStateMachine LocalTesting NegativeSentimentTest 1`] = `
-Object {
-  "Check Address": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
+Array [
+  Object {
+    "ExecutionStarted": Array [
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "roleArn": "arn:aws:iam::123456789012:role/service-role/LambdaSQSIntegration",
         },
-        "name": "Check Address",
+        "type": "ExecutionStarted",
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\\",\\"Payload\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
+    ],
+    "ParallelStateEnteredValidation": Array [
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "Validation",
         },
-        "resource": "invoke",
-        "resourceType": "lambda",
+        "type": "ParallelStateEntered",
       },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "Check Address",
-        "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
+      Object {
+        "detail": undefined,
+        "type": "ParallelStateStarted",
       },
-      "type": "TaskStateExited",
-    },
-  ],
-  "Check Identity": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "Check Identity",
+      Object {
+        "TaskStateEnteredCheck Address": Array [
+          Object {
+            "detail": Object {
+              "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+              "inputDetails": Object {
+                "truncated": false,
+              },
+              "name": "Check Address",
+            },
+            "type": "TaskStateEntered",
+          },
+          Object {
+            "detail": Object {
+              "heartbeatInSeconds": undefined,
+              "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\\",\\"Payload\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"}}",
+              "region": "us-east-1",
+              "resource": "invoke",
+              "resourceType": "lambda",
+              "timeoutInSeconds": undefined,
+            },
+            "type": "TaskScheduled",
+          },
+          Object {
+            "detail": Object {
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskStarted",
+          },
+          Object {
+            "detail": Object {
+              "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskSucceeded",
+          },
+          Object {
+            "detail": Object {
+              "name": "Check Address",
+              "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "TaskStateExited",
+          },
+        ],
+        "TaskStateEnteredCheck Identity": Array [
+          Object {
+            "detail": Object {
+              "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+              "inputDetails": Object {
+                "truncated": false,
+              },
+              "name": "Check Identity",
+            },
+            "type": "TaskStateEntered",
+          },
+          Object {
+            "detail": Object {
+              "heartbeatInSeconds": undefined,
+              "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
+              "region": "us-east-1",
+              "resource": "invoke",
+              "resourceType": "lambda",
+              "timeoutInSeconds": undefined,
+            },
+            "type": "TaskScheduled",
+          },
+          Object {
+            "detail": Object {
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskStarted",
+          },
+          Object {
+            "detail": Object {
+              "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskSucceeded",
+          },
+          Object {
+            "detail": Object {
+              "name": "Check Identity",
+              "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "TaskStateExited",
+          },
+        ],
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
+    ],
+  },
+  Object {
+    "detail": undefined,
+    "type": "ParallelStateSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "Validation",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskScheduled",
     },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
+    "type": "ParallelStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStarted",
+      "name": "DetectSentiment",
     },
-    Object {
-      "detail": Object {
-        "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "invoke",
-        "resourceType": "lambda",
+    "type": "TaskStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+      "region": "us-east-1",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskSucceeded",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
     },
-    Object {
-      "detail": Object {
-        "name": "Check Identity",
-        "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
+    "type": "TaskSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "DetectSentiment",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateExited",
     },
-  ],
-  "DetectSentiment": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "DetectSentiment",
+    "type": "TaskStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateEntered",
+      "name": "Is Positive Sentiment?",
     },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-        "region": "us-east-1",
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-        "timeoutInSeconds": undefined,
+    "type": "ChoiceStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "name": "Is Positive Sentiment?",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskScheduled",
     },
-    Object {
-      "detail": Object {
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
+    "type": "ChoiceStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStarted",
+      "name": "NegativeSentimentDetected",
     },
-    Object {
-      "detail": Object {
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
+    "type": "TaskStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Negative Sentiment Detected\\",\\"Data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}},\\"DetailType\\":\\"NegativeSentiment\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
+      "region": "us-east-1",
+      "resource": "putEvents",
+      "resourceType": "events",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "putEvents",
+      "resourceType": "events",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskSucceeded",
+      "resource": "putEvents",
+      "resourceType": "events",
     },
-    Object {
-      "detail": Object {
-        "name": "DetectSentiment",
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
+    "type": "TaskSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "NegativeSentimentDetected",
+      "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateExited",
     },
-  ],
-  "Is Positive Sentiment?": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "Is Positive Sentiment?",
+    "type": "TaskStateExited",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "ChoiceStateEntered",
     },
-    Object {
-      "detail": Object {
-        "name": "Is Positive Sentiment?",
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "ChoiceStateExited",
-    },
-  ],
-  "NegativeSentimentDetected": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "NegativeSentimentDetected",
-      },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Negative Sentiment Detected\\",\\"Data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}},\\"DetailType\\":\\"NegativeSentiment\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
-        "region": "us-east-1",
-        "resource": "putEvents",
-        "resourceType": "events",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "putEvents",
-        "resourceType": "events",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "putEvents",
-        "resourceType": "events",
-      },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "NegativeSentimentDetected",
-        "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "TaskStateExited",
-    },
-  ],
-}
+    "type": "ExecutionSucceeded",
+  },
+]
 `;
 
 exports[`SalesLeadsStateMachine LocalTesting RetryOnServiceExceptionTest 1`] = `
-Object {
-  "Add to FollowUp": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-        "inputDetails": Object {
-          "truncated": false,
+Array [
+  Object {
+    "ExecutionStarted": Array [
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "roleArn": "arn:aws:iam::123456789012:role/service-role/LambdaSQSIntegration",
         },
-        "name": "Add to FollowUp",
+        "type": "ExecutionStarted",
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"Item\\":{\\"PK\\":{\\"S\\":\\"jdoe@example.com\\"}},\\"TableName\\":\\"FollowUpTable\\"}",
-        "region": "us-east-1",
-        "resource": "putItem",
-        "resourceType": "dynamodb",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "putItem",
-        "resourceType": "dynamodb",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-        "outputDetails": Object {
-          "truncated": false,
+    ],
+    "ParallelStateEnteredValidation": Array [
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "Validation",
         },
-        "resource": "putItem",
-        "resourceType": "dynamodb",
+        "type": "ParallelStateEntered",
       },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "Add to FollowUp",
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
+      Object {
+        "detail": undefined,
+        "type": "ParallelStateStarted",
       },
-      "type": "TaskStateExited",
-    },
-  ],
-  "Check Address": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "Check Address",
+      Object {
+        "TaskStateEnteredCheck Address": Array [
+          Object {
+            "detail": Object {
+              "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+              "inputDetails": Object {
+                "truncated": false,
+              },
+              "name": "Check Address",
+            },
+            "type": "TaskStateEntered",
+          },
+          Object {
+            "detail": Object {
+              "heartbeatInSeconds": undefined,
+              "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\\",\\"Payload\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"}}",
+              "region": "us-east-1",
+              "resource": "invoke",
+              "resourceType": "lambda",
+              "timeoutInSeconds": undefined,
+            },
+            "type": "TaskScheduled",
+          },
+          Object {
+            "detail": Object {
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskStarted",
+          },
+          Object {
+            "detail": Object {
+              "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskSucceeded",
+          },
+          Object {
+            "detail": Object {
+              "name": "Check Address",
+              "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "TaskStateExited",
+          },
+        ],
+        "TaskStateEnteredCheck Identity": Array [
+          Object {
+            "detail": Object {
+              "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+              "inputDetails": Object {
+                "truncated": false,
+              },
+              "name": "Check Identity",
+            },
+            "type": "TaskStateEntered",
+          },
+          Object {
+            "detail": Object {
+              "heartbeatInSeconds": undefined,
+              "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
+              "region": "us-east-1",
+              "resource": "invoke",
+              "resourceType": "lambda",
+              "timeoutInSeconds": undefined,
+            },
+            "type": "TaskScheduled",
+          },
+          Object {
+            "detail": Object {
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskStarted",
+          },
+          Object {
+            "detail": Object {
+              "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+              "resource": "invoke",
+              "resourceType": "lambda",
+            },
+            "type": "TaskSucceeded",
+          },
+          Object {
+            "detail": Object {
+              "name": "Check Identity",
+              "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "TaskStateExited",
+          },
+        ],
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\\",\\"Payload\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
+    ],
+  },
+  Object {
+    "detail": undefined,
+    "type": "ParallelStateSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "Validation",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskScheduled",
     },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
+    "type": "ParallelStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStarted",
+      "name": "DetectSentiment",
     },
-    Object {
-      "detail": Object {
-        "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "invoke",
-        "resourceType": "lambda",
+    "type": "TaskStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+      "region": "us-east-1",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
+      "error": "InternalServerException",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+    },
+    "type": "TaskFailed",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+      "region": "us-east-1",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
+      "error": "InternalServerException",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+    },
+    "type": "TaskFailed",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+      "region": "us-east-1",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
+      "error": "InternalServerException",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+    },
+    "type": "TaskFailed",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+      "region": "us-east-1",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskSucceeded",
+      "resource": "comprehend:detectSentiment",
+      "resourceType": "aws-sdk",
     },
-    Object {
-      "detail": Object {
-        "name": "Check Address",
-        "output": "{\\"address\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
+    "type": "TaskSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "DetectSentiment",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateExited",
     },
-  ],
-  "Check Identity": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "Check Identity",
+    "type": "TaskStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateEntered",
+      "name": "Is Positive Sentiment?",
     },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
+    "type": "ChoiceStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "name": "Is Positive Sentiment?",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskScheduled",
     },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
+    "type": "ChoiceStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStarted",
+      "name": "Add to FollowUp",
     },
-    Object {
-      "detail": Object {
-        "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "invoke",
-        "resourceType": "lambda",
+    "type": "TaskStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"Item\\":{\\"PK\\":{\\"S\\":\\"jdoe@example.com\\"}},\\"TableName\\":\\"FollowUpTable\\"}",
+      "region": "us-east-1",
+      "resource": "putItem",
+      "resourceType": "dynamodb",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "putItem",
+      "resourceType": "dynamodb",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskSucceeded",
+      "resource": "putItem",
+      "resourceType": "dynamodb",
     },
-    Object {
-      "detail": Object {
-        "name": "Check Identity",
-        "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
+    "type": "TaskSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "Add to FollowUp",
+      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateExited",
     },
-  ],
-  "CustomerAddedToFollowup": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "CustomerAddedToFollowup",
+    "type": "TaskStateExited",
+  },
+  Object {
+    "detail": Object {
+      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+      "inputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStateEntered",
+      "name": "CustomerAddedToFollowup",
     },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Customer Added for follow up\\",\\"EmailAddress\\":\\"jdoe@example.com\\"},\\"DetailType\\":\\"CustomerAdded\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
-        "region": "us-east-1",
-        "resource": "putEvents",
-        "resourceType": "events",
-        "timeoutInSeconds": undefined,
+    "type": "TaskStateEntered",
+  },
+  Object {
+    "detail": Object {
+      "heartbeatInSeconds": undefined,
+      "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Customer Added for follow up\\",\\"EmailAddress\\":\\"jdoe@example.com\\"},\\"DetailType\\":\\"CustomerAdded\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
+      "region": "us-east-1",
+      "resource": "putEvents",
+      "resourceType": "events",
+      "timeoutInSeconds": undefined,
+    },
+    "type": "TaskScheduled",
+  },
+  Object {
+    "detail": Object {
+      "resource": "putEvents",
+      "resourceType": "events",
+    },
+    "type": "TaskStarted",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskScheduled",
+      "resource": "putEvents",
+      "resourceType": "events",
     },
-    Object {
-      "detail": Object {
-        "resource": "putEvents",
-        "resourceType": "events",
+    "type": "TaskSucceeded",
+  },
+  Object {
+    "detail": Object {
+      "name": "CustomerAddedToFollowup",
+      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskStarted",
     },
-    Object {
-      "detail": Object {
-        "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "putEvents",
-        "resourceType": "events",
+    "type": "TaskStateExited",
+  },
+  Object {
+    "detail": Object {
+      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+      "outputDetails": Object {
+        "truncated": false,
       },
-      "type": "TaskSucceeded",
     },
-    Object {
-      "detail": Object {
-        "name": "CustomerAddedToFollowup",
-        "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "TaskStateExited",
-    },
-  ],
-  "DetectSentiment": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "DetectSentiment",
-      },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-        "region": "us-east-1",
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
-        "error": "InternalServerException",
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-        "region": "us-east-1",
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
-        "error": "InternalServerException",
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-        "region": "us-east-1",
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
-        "error": "InternalServerException",
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-        "region": "us-east-1",
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "comprehend:detectSentiment",
-        "resourceType": "aws-sdk",
-      },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "DetectSentiment",
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "TaskStateExited",
-    },
-  ],
-  "Is Positive Sentiment?": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "Is Positive Sentiment?",
-      },
-      "type": "ChoiceStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "name": "Is Positive Sentiment?",
-        "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "ChoiceStateExited",
-    },
-  ],
-}
+    "type": "ExecutionSucceeded",
+  },
+]
 `;
 
 exports[`SalesLeadsStateMachine LocalTesting ValidationExceptionCatchTest 1`] = `
-Object {
-  "Check Address": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
+Array [
+  Object {
+    "ExecutionStarted": Array [
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "roleArn": "arn:aws:iam::123456789012:role/service-role/LambdaSQSIntegration",
         },
-        "name": "Check Address",
+        "type": "ExecutionStarted",
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\\",\\"Payload\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Address Validation Exception",
-        "error": "CustomAddressValidationError",
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": undefined,
-      "type": "ParallelStateFailed",
-    },
-  ],
-  "Check Identity": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
+    ],
+    "ParallelStateEnteredValidation": Array [
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "Validation",
         },
-        "name": "Check Identity",
+        "type": "ParallelStateEntered",
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
+      Object {
+        "ParallelStateStarted": Array [
+          Object {
+            "detail": undefined,
+            "type": "ParallelStateStarted",
+          },
+          Object {
+            "TaskStateEnteredCheck Address": Array [
+              Object {
+                "detail": Object {
+                  "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+                  "inputDetails": Object {
+                    "truncated": false,
+                  },
+                  "name": "Check Address",
+                },
+                "type": "TaskStateEntered",
+              },
+              Object {
+                "detail": Object {
+                  "heartbeatInSeconds": undefined,
+                  "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-address-function\\",\\"Payload\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"}}",
+                  "region": "us-east-1",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                  "timeoutInSeconds": undefined,
+                },
+                "type": "TaskScheduled",
+              },
+              Object {
+                "detail": Object {
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskStarted",
+              },
+              Object {
+                "detail": Object {
+                  "cause": "Address Validation Exception",
+                  "error": "CustomAddressValidationError",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskFailed",
+              },
+              Object {
+                "detail": undefined,
+                "type": "ParallelStateFailed",
+              },
+            ],
+            "TaskStateEnteredCheck Identity": Array [
+              Object {
+                "detail": Object {
+                  "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
+                  "inputDetails": Object {
+                    "truncated": false,
+                  },
+                  "name": "Check Identity",
+                },
+                "type": "TaskStateEntered",
+              },
+              Object {
+                "detail": Object {
+                  "heartbeatInSeconds": undefined,
+                  "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:check-identity-function\\",\\"Payload\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"}}",
+                  "region": "us-east-1",
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                  "timeoutInSeconds": undefined,
+                },
+                "type": "TaskScheduled",
+              },
+              Object {
+                "detail": Object {
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskStarted",
+              },
+              Object {
+                "detail": Object {
+                  "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+                  "outputDetails": Object {
+                    "truncated": false,
+                  },
+                  "resource": "invoke",
+                  "resourceType": "lambda",
+                },
+                "type": "TaskSucceeded",
+              },
+              Object {
+                "detail": Object {
+                  "name": "Check Identity",
+                  "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
+                  "outputDetails": Object {
+                    "truncated": false,
+                  },
+                },
+                "type": "TaskStateExited",
+              },
+            ],
+          },
+        ],
+        "TaskStateExitedValidation": Array [
+          Object {
+            "detail": Object {
+              "name": "Validation",
+              "output": "{\\"Error\\":\\"CustomAddressValidationError\\",\\"Cause\\":\\"Address Validation Exception\\"}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "TaskStateExited",
+          },
+          Object {
+            "detail": Object {
+              "input": "{\\"Error\\":\\"CustomAddressValidationError\\",\\"Cause\\":\\"Address Validation Exception\\"}",
+              "inputDetails": Object {
+                "truncated": false,
+              },
+              "name": "ValidationException",
+            },
+            "type": "TaskStateEntered",
+          },
+          Object {
+            "detail": Object {
+              "heartbeatInSeconds": undefined,
+              "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Validation Exception\\"},\\"DetailType\\":\\"ValidationException\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
+              "region": "us-east-1",
+              "resource": "putEvents",
+              "resourceType": "events",
+              "timeoutInSeconds": undefined,
+            },
+            "type": "TaskScheduled",
+          },
+          Object {
+            "detail": Object {
+              "resource": "putEvents",
+              "resourceType": "events",
+            },
+            "type": "TaskStarted",
+          },
+          Object {
+            "detail": Object {
+              "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+              "resource": "putEvents",
+              "resourceType": "events",
+            },
+            "type": "TaskSucceeded",
+          },
+          Object {
+            "detail": Object {
+              "name": "ValidationException",
+              "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "TaskStateExited",
+          },
+          Object {
+            "detail": Object {
+              "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+              "outputDetails": Object {
+                "truncated": false,
+              },
+            },
+            "type": "ExecutionSucceeded",
+          },
+        ],
       },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "Check Identity",
-        "output": "{\\"identity\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "TaskStateExited",
-    },
-  ],
-  "ValidationException": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"Error\\":\\"CustomAddressValidationError\\",\\"Cause\\":\\"Address Validation Exception\\"}",
-        "inputDetails": Object {
-          "truncated": false,
-        },
-        "name": "ValidationException",
-      },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Validation Exception\\"},\\"DetailType\\":\\"ValidationException\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
-        "region": "us-east-1",
-        "resource": "putEvents",
-        "resourceType": "events",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "putEvents",
-        "resourceType": "events",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-        "resource": "putEvents",
-        "resourceType": "events",
-      },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "ValidationException",
-        "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
-        "outputDetails": Object {
-          "truncated": false,
-        },
-      },
-      "type": "TaskStateExited",
-    },
-  ],
-}
+    ],
+  },
+]
 `;

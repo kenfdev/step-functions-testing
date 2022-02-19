@@ -3,6 +3,7 @@ import {
   CreateStateMachineCommandInput,
   DescribeExecutionCommand,
   GetExecutionHistoryCommand,
+  HistoryEvent,
   SFNClient,
   SFNClientConfig,
   StartExecutionCommand,
@@ -263,57 +264,97 @@ export const createJestTestFromMockConfig = (
               );
 
               // Assert
-              const { events = [] } = await client.getExecutionHistory(
-                startExecutionResponse.executionArn!
-              );
+              const { events: rawEvents = [] } =
+                await client.getExecutionHistory(
+                  startExecutionResponse.executionArn!
+                );
 
               // TODO: think of an efficient way to do this
-              const nextEvents = events.reduce((obj, e) => {
-                obj[e.previousEventId!.toString()] = e;
-                return obj;
-              }, {} as { [id: string]: any });
-              // console.log('next events', JSON.stringify(nextEvents));
+              const { nextEvents, normalizedEvents } = rawEvents.reduce(
+                (obj, e) => {
+                  const id = e.id!.toString();
+                  const previousId = e.previousEventId!.toString();
 
-              const stateEnteredEventDetails = events.filter(
-                (e) =>
-                  e.type !== 'ParallelStateEntered' && // TODO: think of a better way to catch parallels
-                  e.stateEnteredEventDetails &&
-                  e.stateEnteredEventDetails.name !== '' &&
-                  e.stateEnteredEventDetails.name !== undefined &&
-                  e.stateEnteredEventDetails.name !== null
+                  const { nextEvents, normalizedEvents } = obj;
+
+                  if (nextEvents[previousId]) {
+                    nextEvents[previousId].push(e.id?.toString());
+                  } else {
+                    nextEvents[previousId] = [e.id?.toString()];
+                  }
+
+                  normalizedEvents[id] = e;
+
+                  return obj;
+                },
+                { nextEvents: {}, normalizedEvents: {} } as {
+                  nextEvents: { [id: string]: any[] };
+                  normalizedEvents: { [id: string]: HistoryEvent };
+                }
               );
 
-              // console.log(JSON.stringify(stateEnteredEventDetails));
+              // console.log('next events', JSON.stringify(nextEvents));
 
-              let stateEvents = {} as { [key: string]: any };
-              for (const stateEnteredEventDetail of stateEnteredEventDetails) {
-                let events = [];
+              let [results, nextKey] = findNext('0');
+              while (nextKey) {
+                const [res, next] = findNext(nextKey);
+                results = results.concat(res);
+                nextKey = next;
+              }
 
-                let nextEventDetail = stateEnteredEventDetail;
-                // console.log('next event', nextEventDetail);
+              // console.log('results', JSON.stringify(results));
+              expect(results).toMatchSnapshot();
 
-                while (nextEventDetail !== undefined) {
-                  // console.log('nextEventDetail', nextEventDetail);
-                  const key = typeMaps[nextEventDetail.type as string];
-                  events.push({
-                    type: nextEventDetail.type,
-                    detail: (nextEventDetail as any)[key],
-                  });
-                  if (
-                    // TODO: very fragile way to detect end of state
-                    nextEventDetail.type === 'TaskStateExited' ||
-                    nextEventDetail.type === 'ChoiceStateExited'
-                  )
-                    break;
-
-                  nextEventDetail = nextEvents[nextEventDetail.id!.toString()];
+              function findNext(key: string) {
+                const events = [] as any[];
+                const initialEvent = normalizedEvents[key];
+                if (initialEvent) {
+                  const detail = (initialEvent as any)[
+                    typeMaps[initialEvent.type!]
+                  ];
+                  events.push({ type: initialEvent.type, detail });
                 }
 
-                stateEvents[
-                  stateEnteredEventDetail.stateEnteredEventDetails!.name!
-                ] = events;
+                let next = nextEvents[key];
+                while (next) {
+                  if (next.length > 1) {
+                    // parallel
+                    const results = {} as { [key: string]: string[] };
+                    let continueKey = ''; // only one continue key should happen. I think...
+                    for (let k of next) {
+                      let [ns, nextKey] = findNext(k);
+                      if (nextKey && !continueKey) {
+                        continueKey = nextKey;
+                      }
+
+                      const targetEvent = normalizedEvents[k];
+                      const name =
+                        targetEvent.stateEnteredEventDetails?.name ||
+                        targetEvent.stateExitedEventDetails?.name;
+                      results[`${targetEvent.type}${name || ''}`] = ns; // TODO: not sure if this has collisions or not
+                    }
+                    events.push(results);
+                    if (continueKey) return [events, continueKey];
+
+                    break;
+                  }
+
+                  const nextKey = next[0];
+                  const targetEvent = normalizedEvents[nextKey];
+                  if (targetEvent.type === 'ParallelStateSucceeded') {
+                    // Parallel screws things because of inconsistent order.
+                    // Break the sequence here
+                    return [events, nextKey];
+                  }
+
+                  const detail = (targetEvent as any)[
+                    typeMaps[targetEvent.type!]
+                  ];
+                  events.push({ type: targetEvent.type, detail });
+                  next = nextEvents[nextKey];
+                }
+                return [events];
               }
-              expect(stateEvents).toMatchSnapshot();
             },
             30_000
           );

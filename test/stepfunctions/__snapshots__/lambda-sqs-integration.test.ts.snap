@@ -1,296 +1,338 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Lambda SQS integration LambdaSQSIntegration HappyPath 1`] = `
-Object {
-  "LambdaState": Array [
-    Object {
-      "detail": Object {
-        "input": "{}",
-        "inputDetails": Object {
-          "truncated": false,
+Array [
+  Object {
+    "ExecutionStarted": Array [
+      Object {
+        "detail": Object {
+          "input": "{}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "roleArn": "arn:aws:iam::123456789012:role/service-role/LambdaSQSIntegration",
         },
-        "name": "LambdaState",
+        "type": "ExecutionStarted",
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
+    ],
+    "TaskStateEnteredLambdaState": Array [
+      Object {
+        "detail": Object {
+          "input": "{}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "LambdaState",
         },
-        "resource": "invoke",
-        "resourceType": "lambda",
+        "type": "TaskStateEntered",
       },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "LambdaState",
-        "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
+          "region": "us-east-1",
+          "resource": "invoke",
+          "resourceType": "lambda",
+          "timeoutInSeconds": undefined,
         },
+        "type": "TaskScheduled",
       },
-      "type": "TaskStateExited",
-    },
-  ],
-  "SqsState": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
+      Object {
+        "detail": Object {
+          "resource": "invoke",
+          "resourceType": "lambda",
         },
-        "name": "SqsState",
+        "type": "TaskStarted",
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"QueueUrl\\":\\"https://sqs.us-west-2.amazonaws.com/444455556666/queue1\\",\\"MessageBody\\":{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}}",
-        "region": "us-east-1",
-        "resource": "sendMessage",
-        "resourceType": "sqs",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "sendMessage",
-        "resourceType": "sqs",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"MD5OfMessageBody\\":\\"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51\\",\\"MessageId\\":\\"3bcb6e8e-8b51-4375-b0bc-1a59812c6e51\\"}",
-        "outputDetails": Object {
-          "truncated": false,
+      Object {
+        "detail": Object {
+          "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "invoke",
+          "resourceType": "lambda",
         },
-        "resource": "sendMessage",
-        "resourceType": "sqs",
+        "type": "TaskSucceeded",
       },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "SqsState",
-        "output": "{\\"MD5OfMessageBody\\":\\"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51\\",\\"MessageId\\":\\"3bcb6e8e-8b51-4375-b0bc-1a59812c6e51\\"}",
-        "outputDetails": Object {
-          "truncated": false,
+      Object {
+        "detail": Object {
+          "name": "LambdaState",
+          "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
         },
+        "type": "TaskStateExited",
       },
-      "type": "TaskStateExited",
-    },
-  ],
-}
+      Object {
+        "detail": Object {
+          "input": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "SqsState",
+        },
+        "type": "TaskStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"QueueUrl\\":\\"https://sqs.us-west-2.amazonaws.com/444455556666/queue1\\",\\"MessageBody\\":{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}}",
+          "region": "us-east-1",
+          "resource": "sendMessage",
+          "resourceType": "sqs",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "sendMessage",
+          "resourceType": "sqs",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"MD5OfMessageBody\\":\\"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51\\",\\"MessageId\\":\\"3bcb6e8e-8b51-4375-b0bc-1a59812c6e51\\"}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "sendMessage",
+          "resourceType": "sqs",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "SqsState",
+          "output": "{\\"MD5OfMessageBody\\":\\"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51\\",\\"MessageId\\":\\"3bcb6e8e-8b51-4375-b0bc-1a59812c6e51\\"}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"MD5OfMessageBody\\":\\"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51\\",\\"MessageId\\":\\"3bcb6e8e-8b51-4375-b0bc-1a59812c6e51\\"}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ExecutionSucceeded",
+      },
+    ],
+  },
+]
 `;
 
 exports[`Lambda SQS integration LambdaSQSIntegration RetryPath 1`] = `
-Object {
-  "LambdaState": Array [
-    Object {
-      "detail": Object {
-        "input": "{}",
-        "inputDetails": Object {
-          "truncated": false,
+Array [
+  Object {
+    "ExecutionStarted": Array [
+      Object {
+        "detail": Object {
+          "input": "{}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "roleArn": "arn:aws:iam::123456789012:role/service-role/LambdaSQSIntegration",
         },
-        "name": "LambdaState",
+        "type": "ExecutionStarted",
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Lambda resource is not ready.",
-        "error": "Lambda.ResourceNotReadyException",
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Lambda timed out.",
-        "error": "Lambda.TimeoutException",
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "cause": "Lambda timed out.",
-        "error": "Lambda.TimeoutException",
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskFailed",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
-        "region": "us-east-1",
-        "resource": "invoke",
-        "resourceType": "lambda",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "invoke",
-        "resourceType": "lambda",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
+    ],
+    "TaskStateEnteredLambdaState": Array [
+      Object {
+        "detail": Object {
+          "input": "{}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "LambdaState",
         },
-        "resource": "invoke",
-        "resourceType": "lambda",
+        "type": "TaskStateEntered",
       },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "LambdaState",
-        "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
-        "outputDetails": Object {
-          "truncated": false,
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
+          "region": "us-east-1",
+          "resource": "invoke",
+          "resourceType": "lambda",
+          "timeoutInSeconds": undefined,
         },
+        "type": "TaskScheduled",
       },
-      "type": "TaskStateExited",
-    },
-  ],
-  "SqsState": Array [
-    Object {
-      "detail": Object {
-        "input": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
-        "inputDetails": Object {
-          "truncated": false,
+      Object {
+        "detail": Object {
+          "resource": "invoke",
+          "resourceType": "lambda",
         },
-        "name": "SqsState",
+        "type": "TaskStarted",
       },
-      "type": "TaskStateEntered",
-    },
-    Object {
-      "detail": Object {
-        "heartbeatInSeconds": undefined,
-        "parameters": "{\\"QueueUrl\\":\\"https://sqs.us-west-2.amazonaws.com/444455556666/queue1\\",\\"MessageBody\\":{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}}",
-        "region": "us-east-1",
-        "resource": "sendMessage",
-        "resourceType": "sqs",
-        "timeoutInSeconds": undefined,
-      },
-      "type": "TaskScheduled",
-    },
-    Object {
-      "detail": Object {
-        "resource": "sendMessage",
-        "resourceType": "sqs",
-      },
-      "type": "TaskStarted",
-    },
-    Object {
-      "detail": Object {
-        "output": "{\\"MD5OfMessageBody\\":\\"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51\\",\\"MessageId\\":\\"3bcb6e8e-8b51-4375-b0bc-1a59812c6e51\\"}",
-        "outputDetails": Object {
-          "truncated": false,
+      Object {
+        "detail": Object {
+          "cause": "Lambda resource is not ready.",
+          "error": "Lambda.ResourceNotReadyException",
+          "resource": "invoke",
+          "resourceType": "lambda",
         },
-        "resource": "sendMessage",
-        "resourceType": "sqs",
+        "type": "TaskFailed",
       },
-      "type": "TaskSucceeded",
-    },
-    Object {
-      "detail": Object {
-        "name": "SqsState",
-        "output": "{\\"MD5OfMessageBody\\":\\"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51\\",\\"MessageId\\":\\"3bcb6e8e-8b51-4375-b0bc-1a59812c6e51\\"}",
-        "outputDetails": Object {
-          "truncated": false,
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
+          "region": "us-east-1",
+          "resource": "invoke",
+          "resourceType": "lambda",
+          "timeoutInSeconds": undefined,
         },
+        "type": "TaskScheduled",
       },
-      "type": "TaskStateExited",
-    },
-  ],
-}
+      Object {
+        "detail": Object {
+          "resource": "invoke",
+          "resourceType": "lambda",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "cause": "Lambda timed out.",
+          "error": "Lambda.TimeoutException",
+          "resource": "invoke",
+          "resourceType": "lambda",
+        },
+        "type": "TaskFailed",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
+          "region": "us-east-1",
+          "resource": "invoke",
+          "resourceType": "lambda",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "invoke",
+          "resourceType": "lambda",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "cause": "Lambda timed out.",
+          "error": "Lambda.TimeoutException",
+          "resource": "invoke",
+          "resourceType": "lambda",
+        },
+        "type": "TaskFailed",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"FunctionName\\":\\"arn:aws:lambda:us-west-2:123456789012:function:my-function\\",\\"Payload\\":{\\"FunctionName\\":\\"HelloWorldFunction\\",\\"Payload\\":{}}}",
+          "region": "us-east-1",
+          "resource": "invoke",
+          "resourceType": "lambda",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "invoke",
+          "resourceType": "lambda",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "invoke",
+          "resourceType": "lambda",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "LambdaState",
+          "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "SqsState",
+        },
+        "type": "TaskStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"QueueUrl\\":\\"https://sqs.us-west-2.amazonaws.com/444455556666/queue1\\",\\"MessageBody\\":{\\"StatusCode\\":200,\\"Payload\\":{\\"StatusCode\\":200,\\"body\\":\\"Hello from Lambda!\\"}}}",
+          "region": "us-east-1",
+          "resource": "sendMessage",
+          "resourceType": "sqs",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "sendMessage",
+          "resourceType": "sqs",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"MD5OfMessageBody\\":\\"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51\\",\\"MessageId\\":\\"3bcb6e8e-8b51-4375-b0bc-1a59812c6e51\\"}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "sendMessage",
+          "resourceType": "sqs",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "SqsState",
+          "output": "{\\"MD5OfMessageBody\\":\\"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51\\",\\"MessageId\\":\\"3bcb6e8e-8b51-4375-b0bc-1a59812c6e51\\"}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"MD5OfMessageBody\\":\\"3bcb6e8e-7h85-4375-b0bc-1a59812c6e51\\",\\"MessageId\\":\\"3bcb6e8e-8b51-4375-b0bc-1a59812c6e51\\"}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ExecutionSucceeded",
+      },
+    ],
+  },
+]
 `;
