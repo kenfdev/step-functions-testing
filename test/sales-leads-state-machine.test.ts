@@ -59,14 +59,45 @@ for (const testDefinition of config.collectStateMachineTestDefinitions()) {
           const { events = [] } = await client.getExecutionHistory(
             startExecutionResponse.executionArn!
           );
-          console.warn(JSON.stringify(events));
+          // console.warn(JSON.stringify(events));
 
+          const resultsMap = new Map<string, any[]>();
           for (const e of events) {
-            e.stateEnteredEventDetails?.name;
-            expect(e).toMatchSnapshot({
-              timestamp: expect.anything(),
-            });
+            if (e.stateEnteredEventDetails?.name) {
+              const val = resultsMap.get(e.stateEnteredEventDetails.name);
+              if (val) {
+                resultsMap.set(e.stateEnteredEventDetails.name, [
+                  ...val,
+                  { input: e.stateEnteredEventDetails.input },
+                ]);
+              } else {
+                resultsMap.set(e.stateEnteredEventDetails.name, [
+                  { input: e.stateEnteredEventDetails.input },
+                ]);
+              }
+              // console.warn(JSON.stringify(e));
+              // expect(e).toMatchSnapshot({
+              //   timestamp: expect.anything(),
+              // });
+            }
+            if (e.stateExitedEventDetails?.name) {
+              const val = resultsMap.get(e.stateExitedEventDetails.name);
+              if (val) {
+                resultsMap.set(e.stateExitedEventDetails.name, [
+                  ...val,
+                  { output: e.stateExitedEventDetails.output },
+                ]);
+              } else {
+                resultsMap.set(e.stateExitedEventDetails.name, [
+                  { output: e.stateExitedEventDetails.output },
+                ]);
+              }
+            }
+            // expect(e).toMatchSnapshot({
+            //   timestamp: expect.anything(),
+            // });
           }
+          expect(resultsMap).toMatchSnapshot();
         },
         30_000
       );
