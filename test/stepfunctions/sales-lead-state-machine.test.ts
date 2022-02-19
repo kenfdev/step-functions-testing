@@ -193,46 +193,69 @@ const detectSentimentRetryOnErrorWithSuccess = new MockedResponse(
     },
   });
 
+const input = {
+  data: {
+    firstname: 'Jane',
+    lastname: 'Doe',
+    identity: {
+      email: 'jdoe@example.com',
+      ssn: '123-45-6789',
+    },
+    address: {
+      street: '123 Main St',
+      city: 'Columbus',
+      state: 'OH',
+      zip: '43219',
+    },
+    comments:
+      'I am glad to sign-up for this service. Looking forward to different options.',
+  },
+};
+
 const stateMachineTestDefinition = new StateMachineTestDefinition(
   stateMachineName
-).addTestCase(
-  new StateMachineTestCase<StateName>('HappyPathTest')
-    .withInput({
-      data: {
-        firstname: 'Jane',
-        lastname: 'Doe',
-        identity: {
-          email: 'jdoe@example.com',
-          ssn: '123-45-6789',
-        },
-        address: {
-          street: '123 Main St',
-          city: 'Columbus',
-          state: 'OH',
-          zip: '43219',
-        },
-        comments:
-          'I am glad to sign-up for this service. Looking forward to different options.',
-      },
-    })
-    .addMockedState(
-      stateNames.checkIdentityStateName,
-      checkIdentityLambdaMockedSuccess
-    )
-    .addMockedState(
-      stateNames.checkAddressStateName,
-      checkAddressLambdaMockedSuccess
-    )
-    .addMockedState(
-      stateNames.detectSentimentStateName,
-      detectSentimentPositive
-    )
-    .addMockedState(stateNames.addToFollowUpStateName, addToFollowUpSuccess)
-    .addMockedState(
-      stateNames.customerAddedToFollowupStateName,
-      customerAddedToFollowupSuccess
-    )
-);
+)
+  .addTestCase(
+    new StateMachineTestCase<StateName>('HappyPathTest')
+      .withInput(input)
+      .addMockedState(
+        stateNames.checkIdentityStateName,
+        checkIdentityLambdaMockedSuccess
+      )
+      .addMockedState(
+        stateNames.checkAddressStateName,
+        checkAddressLambdaMockedSuccess
+      )
+      .addMockedState(
+        stateNames.detectSentimentStateName,
+        detectSentimentPositive
+      )
+      .addMockedState(stateNames.addToFollowUpStateName, addToFollowUpSuccess)
+      .addMockedState(
+        stateNames.customerAddedToFollowupStateName,
+        customerAddedToFollowupSuccess
+      )
+  )
+  .addTestCase(
+    new StateMachineTestCase<StateName>('NegativeSentimentTest')
+      .withInput(input)
+      .addMockedState(
+        stateNames.checkIdentityStateName,
+        checkIdentityLambdaMockedSuccess
+      )
+      .addMockedState(
+        stateNames.checkAddressStateName,
+        checkAddressLambdaMockedSuccess
+      )
+      .addMockedState(
+        stateNames.detectSentimentStateName,
+        detectSentimentNegative
+      )
+      .addMockedState(
+        stateNames.negativeSentimentDetectedStateName,
+        negativeSentimentDetectedSuccess
+      )
+  );
 
 const config = new StepFunctionsMockConfig();
 config.addTestDefinition(stateMachineTestDefinition);
@@ -256,4 +279,7 @@ const cfnStackJson = Template.fromStack(stack).toJSON();
 // extract the Asl part
 const asls = extractStateMachineAsls(cfnStackJson);
 
-describe('SalesLeasStateMachine', createJestTestFromMockConfig(config, asls[0]));
+describe(
+  'SalesLeasStateMachine',
+  createJestTestFromMockConfig(config, asls[0])
+);
