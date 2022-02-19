@@ -255,6 +255,22 @@ const stateMachineTestDefinition = new StateMachineTestDefinition(
         stateNames.negativeSentimentDetectedStateName,
         negativeSentimentDetectedSuccess
       )
+  )
+  .addTestCase(
+    new StateMachineTestCase<StateName>('CustomValidationFailedCatchTest')
+      .withInput(input)
+      .addMockedState(
+        stateNames.checkIdentityStateName,
+        checkIdentityLambdaMockedThrowError
+      )
+      .addMockedState(
+        stateNames.checkAddressStateName,
+        checkAddressLambdaMockedSuccess
+      )
+      .addMockedState(
+        stateNames.customValidationFailedStateName,
+        customValidationFailedPutEventSuccess
+      )
   );
 
 const config = new StepFunctionsMockConfig();
