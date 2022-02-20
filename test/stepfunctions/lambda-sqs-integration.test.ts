@@ -6,13 +6,10 @@ import {
 } from 'stepfunctions-testing';
 
 import * as cdk from 'aws-cdk-lib';
-import { Template } from 'aws-cdk-lib/assertions';
 import { StateMachineConstruct } from '../../lib/state-machine-construct';
-import {
-  createJestTestFromMockConfig,
-  extractStateMachineAsls,
-} from '../helpers/stepfunctions';
+import { createJestTestFromMockConfig } from '../helpers/stepfunctions';
 import { Duration } from 'aws-cdk-lib';
+import { extractStateMachineAsls } from '../helpers/stepfunctions/cdk-to-asl';
 
 // TODO: dummy code
 type LambdaResponse = {
@@ -87,9 +84,8 @@ new StateMachineConstruct(stack, 'StateMachine', {
   stateMachineName: stateMachineName,
   retryInterval: Duration.seconds(0),
 });
-const cfnStackJson = Template.fromStack(stack).toJSON();
 // extract the Asl part
-const asls = extractStateMachineAsls(cfnStackJson);
+const asls = extractStateMachineAsls(stack);
 
 describe(
   'Lambda SQS integration',
