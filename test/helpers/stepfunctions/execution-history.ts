@@ -68,34 +68,35 @@ type EventsById = {
 
 export const optimizeExecutionHistory = (rawEvents: HistoryEvent[]) => {
   // TODO: think of an efficient way to do this
-  const { nextEventIds, normalizedEvents } = rawEvents.reduce(
-    (obj, e) => {
-      const { nextEventIds, normalizedEvents } = obj;
+  const { nextEventIds: nextEventIdsMap, eventsById: normalizedEvents } =
+    rawEvents.reduce(
+      (obj, e) => {
+        const { nextEventIds, eventsById: normalizedEvents } = obj;
 
-      const id = e.id!.toString();
-      const previousId = e.previousEventId!.toString();
+        const id = e.id!.toString();
+        const previousId = e.previousEventId!.toString();
 
-      if (nextEventIds[previousId]) {
-        nextEventIds[previousId].push(id);
-      } else {
-        nextEventIds[previousId] = [id];
+        if (nextEventIds[previousId]) {
+          nextEventIds[previousId].push(id);
+        } else {
+          nextEventIds[previousId] = [id];
+        }
+
+        normalizedEvents[id] = e;
+
+        return obj;
+      },
+      { nextEventIds: {}, eventsById: {} } as {
+        nextEventIds: NextEventIdsMap;
+        eventsById: EventsById;
       }
-
-      normalizedEvents[id] = e;
-
-      return obj;
-    },
-    { nextEventIds: {}, normalizedEvents: {} } as {
-      nextEventIds: NextEventIdsMap;
-      normalizedEvents: EventsById;
-    }
-  );
+    );
 
   // console.log('next events', JSON.stringify(nextEvents));
 
-  let [results, nextKey] = findNext('0', normalizedEvents, nextEventIds);
+  let [results, nextKey] = findNext('0', normalizedEvents, nextEventIdsMap);
   while (nextKey) {
-    const [res, next] = findNext(nextKey, normalizedEvents, nextEventIds);
+    const [res, next] = findNext(nextKey, normalizedEvents, nextEventIdsMap);
     results = results.concat(res);
     nextKey = next;
   }
@@ -106,51 +107,63 @@ export const optimizeExecutionHistory = (rawEvents: HistoryEvent[]) => {
 
 function findNext(
   key: string,
-  normalizedEvents: EventsById,
-  nextEventIds: NextEventIdsMap
+  eventsById: EventsById,
+  nextEventIdsMap: NextEventIdsMap
 ): [any[], string?] {
   const events = [] as any[];
-  const initialEvent = normalizedEvents[key];
+  const initialEvent = eventsById[key];
   if (initialEvent) {
-    const detail = (initialEvent as any)[typeMaps[initialEvent.type!]];
-    events.push({ type: initialEvent.type, detail });
+    const detail = getEventDetail(initialEvent);
+    events.push({ type: initialEvent.type!, ...(detail && { detail }) });
   }
 
-  let next = nextEventIds[key];
-  while (next) {
-    if (next.length > 1) {
-      // parallel
-      const results = {} as { [key: string]: string[] };
+  let nextEventIds = nextEventIdsMap[key];
+  while (nextEventIds && nextEventIds.length > 0) {
+    if (nextEventIds.length > 1) {
+      // if there are more than 2 events next, it is a parallel.
+      // parallel events are described as objects
+      const results = {} as { [key: string]: any[] };
       let continueKey = ''; // only one continue key should happen. I think...
-      for (let k of next) {
-        let [ns, nextKey] = findNext(k, normalizedEvents, nextEventIds);
-        if (nextKey && !continueKey) {
+      for (let nextEventId of nextEventIds) {
+        let [subsequentEvents, nextKey] = findNext(
+          nextEventId,
+          eventsById,
+          nextEventIdsMap
+        );
+        if (nextKey) {
           continueKey = nextKey;
         }
 
-        const targetEvent = normalizedEvents[k];
+        const targetEvent = eventsById[nextEventId];
         const name =
           targetEvent.stateEnteredEventDetails?.name ||
           targetEvent.stateExitedEventDetails?.name;
-        results[`${targetEvent.type}${name || ''}`] = ns; // TODO: not sure if this has collisions or not
+
+        results[`${targetEvent.type}${name ? ` ${name}` : ''}`] =
+          subsequentEvents; // TODO: not sure if this naming convention has collisions or not
       }
       events.push(results);
-      if (continueKey) return [events, continueKey];
+
+      if (continueKey) return [events, continueKey]; // if there was a continueKey. End the array here.
 
       break;
     }
 
-    const nextKey = next[0];
-    const targetEvent = normalizedEvents[nextKey];
+    const nextEventId = nextEventIds[0];
+    const targetEvent = eventsById[nextEventId];
     if (targetEvent.type === 'ParallelStateSucceeded') {
-      // Parallel screws things because of inconsistent order.
-      // Break the sequence here
-      return [events, nextKey];
+      // Parallel screws things( from snapshot perspectives) because of inconsistent order.
+      // Break the sequence here with a nextEventId
+      return [events, nextEventId];
     }
 
-    const detail = (targetEvent as any)[typeMaps[targetEvent.type!]];
-    events.push({ type: targetEvent.type, detail });
-    next = nextEventIds[nextKey];
+    const detail = getEventDetail(targetEvent);
+    events.push({ type: targetEvent.type, ...(detail && { detail }) });
+    nextEventIds = nextEventIdsMap[nextEventId];
   }
   return [events];
+}
+
+function getEventDetail(event: HistoryEvent): any {
+  return (event as any)[typeMaps[event.type!]];
 }

@@ -499,7 +499,7 @@ export const testCases = [
             },
           },
         ],
-        ParallelStateEnteredValidation: [
+        'ParallelStateEntered Validation': [
           {
             type: 'ParallelStateEntered',
             detail: {
@@ -511,7 +511,7 @@ export const testCases = [
           },
           { type: 'ParallelStateStarted' },
           {
-            'TaskStateEnteredCheck Identity': [
+            'TaskStateEntered Check Identity': [
               {
                 type: 'TaskStateEntered',
                 detail: {
@@ -555,7 +555,7 @@ export const testCases = [
                 },
               },
             ],
-            'TaskStateEnteredCheck Address': [
+            'TaskStateEntered Check Address': [
               {
                 type: 'TaskStateEntered',
                 detail: {
@@ -1085,7 +1085,7 @@ export const testCases = [
             },
           },
         ],
-        ParallelStateEnteredValidation: [
+        'ParallelStateEntered Validation': [
           {
             type: 'ParallelStateEntered',
             detail: {
@@ -1099,7 +1099,7 @@ export const testCases = [
             ParallelStateStarted: [
               { type: 'ParallelStateStarted' },
               {
-                'TaskStateEnteredCheck Identity': [
+                'TaskStateEntered Check Identity': [
                   {
                     type: 'TaskStateEntered',
                     detail: {
@@ -1143,7 +1143,7 @@ export const testCases = [
                     },
                   },
                 ],
-                'TaskStateEnteredCheck Address': [
+                'TaskStateEntered Check Address': [
                   {
                     type: 'TaskStateEntered',
                     detail: {
@@ -1180,7 +1180,7 @@ export const testCases = [
                 ],
               },
             ],
-            TaskStateExitedValidation: [
+            "TaskStateExited Validation": [
               {
                 type: 'TaskStateExited',
                 detail: {
@@ -1261,7 +1261,7 @@ export const testCases = [
             },
           },
         ],
-        ParallelStateEnteredValidation: [
+        'ParallelStateEntered Validation': [
           {
             type: 'ParallelStateEntered',
             detail: {
@@ -1275,7 +1275,7 @@ export const testCases = [
             ParallelStateStarted: [
               { type: 'ParallelStateStarted' },
               {
-                'TaskStateEnteredCheck Identity': [
+                'TaskStateEntered Check Identity': [
                   {
                     type: 'TaskStateEntered',
                     detail: {
@@ -1379,7 +1379,7 @@ export const testCases = [
                   },
                   { type: 'ParallelStateFailed' },
                 ],
-                'TaskStateEnteredCheck Address': [
+                'TaskStateEntered Check Address': [
                   {
                     type: 'TaskStateEntered',
                     detail: {
@@ -1425,7 +1425,7 @@ export const testCases = [
                 ],
               },
             ],
-            TaskStateExitedValidation: [
+            'TaskStateExited Validation': [
               {
                 type: 'TaskStateExited',
                 detail: {
@@ -1825,7 +1825,7 @@ export const testCases = [
             },
           },
         ],
-        ParallelStateEnteredValidation: [
+        'ParallelStateEntered Validation': [
           {
             type: 'ParallelStateEntered',
             detail: {
@@ -1837,7 +1837,7 @@ export const testCases = [
           },
           { type: 'ParallelStateStarted' },
           {
-            'TaskStateEnteredCheck Identity': [
+            'TaskStateEntered Check Identity': [
               {
                 type: 'TaskStateEntered',
                 detail: {
@@ -1881,7 +1881,7 @@ export const testCases = [
                 },
               },
             ],
-            'TaskStateEnteredCheck Address': [
+            'TaskStateEntered Check Address': [
               {
                 type: 'TaskStateEntered',
                 detail: {
@@ -2388,7 +2388,7 @@ export const testCases = [
             },
           },
         ],
-        ParallelStateEnteredValidation: [
+        'ParallelStateEntered Validation': [
           {
             type: 'ParallelStateEntered',
             detail: {
@@ -2400,7 +2400,7 @@ export const testCases = [
           },
           { type: 'ParallelStateStarted' },
           {
-            'TaskStateEnteredCheck Identity': [
+            'TaskStateEntered Check Identity': [
               {
                 type: 'TaskStateEntered',
                 detail: {
@@ -2444,7 +2444,7 @@ export const testCases = [
                 },
               },
             ],
-            'TaskStateEnteredCheck Address': [
+            'TaskStateEntered Check Address': [
               {
                 type: 'TaskStateEntered',
                 detail: {
