@@ -39,7 +39,7 @@ export class StateMachineConstruct extends Construct {
       errors: ['States.ALL'],
       backoffRate: 2,
       maxAttempts: 3,
-      interval: props.retryInterval,
+      interval: retryInterval,
     });
 
     const sqsState = new tasks.SqsSendMessage(this, sqsStateName, {
@@ -53,7 +53,7 @@ export class StateMachineConstruct extends Construct {
 
     const definition = lambdaState.next(sqsState);
 
-    const sm = new sfn.StateMachine(this, 'SampleStateMachine', {
+    new sfn.StateMachine(this, 'SampleStateMachine', {
       stateMachineName,
       definition,
     });

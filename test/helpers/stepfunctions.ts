@@ -3,12 +3,16 @@ import {
   CreateStateMachineCommandInput,
   DescribeExecutionCommand,
   GetExecutionHistoryCommand,
+  HistoryEvent,
   SFNClient,
   SFNClientConfig,
   StartExecutionCommand,
 } from '@aws-sdk/client-sfn';
 import { GenericContainer } from 'testcontainers';
-import { StateMachineTestCase, StepFunctionsMockConfig } from './mock';
+import {
+  StateMachineTestCase,
+  StepFunctionsMockConfig,
+} from 'stepfunctions-testing';
 import * as tmp from 'tmp-promise';
 import { promises as fs } from 'fs';
 import { StartedTestContainer } from 'testcontainers';
@@ -150,6 +154,64 @@ export class SFNClientWrapper {
   }
 }
 
+const typeMaps = {
+  ActivityFailed: 'activityFailedEventDetails',
+  ActivityScheduled: 'activityScheduledEventDetails',
+  ActivityScheduleFailed: 'activityScheduleFailedEventDetails',
+  ActivityStarted: 'activityStartedEventDetails',
+  ActivitySucceeded: 'activitySucceededEventDetails',
+  ActivityTimedOut: 'activityTimedOutEventDetails',
+  ChoiceStateEntered: 'stateEnteredEventDetails',
+  ChoiceStateExited: 'stateExitedEventDetails',
+  ExecutionAborted: 'executionAbortedEventDetails',
+  ExecutionFailed: 'executionFailedEventDetails',
+  ExecutionStarted: 'executionStartedEventDetails',
+  ExecutionSucceeded: 'executionSucceededEventDetails',
+  ExecutionTimedOut: 'executionTimedOutEventDetails',
+  FailStateEntered: '',
+  LambdaFunctionFailed: 'lambdaFunctionFailedEventDetails',
+  LambdaFunctionScheduled: 'lambdaFunctionScheduledEventDetails',
+  LambdaFunctionScheduleFailed: 'lambdaFunctionScheduleFailedEventDetails',
+  LambdaFunctionStarted: '',
+  LambdaFunctionStartFailed: 'lambdaFunctionStartFailedEventDetails',
+  LambdaFunctionSucceeded: 'lambdaFunctionSucceededEventDetails',
+  LambdaFunctionTimedOut: 'lambdaFunctionTimedOutEventDetails',
+  MapIterationAborted: 'mapIterationAbortedEventDetails',
+  MapIterationFailed: 'mapIterationFailedEventDetails',
+  MapIterationStarted: 'mapIterationStartedEventDetails',
+  MapIterationSucceeded: 'mapIterationSucceededEventDetails',
+  MapStateAborted: '',
+  MapStateEntered: '', // TODO: probably maps to stateEnteredEventDetails
+  MapStateExited: '', // TODO: probably maps to stateExitedEventDetails
+  MapStateFailed: '',
+  MapStateStarted: 'mapStateStartedEventDetails',
+  MapStateSucceeded: '',
+  ParallelStateAborted: '',
+  ParallelStateEntered: 'stateEnteredEventDetails',
+  ParallelStateExited: 'stateExitedEventDetails',
+  ParallelStateFailed: '',
+  ParallelStateStarted: '',
+  ParallelStateSucceeded: '',
+  PassStateEntered: '',
+  PassStateExited: '',
+  SucceedStateEntered: '',
+  SucceedStateExited: '',
+  TaskFailed: 'taskFailedEventDetails',
+  TaskScheduled: 'taskScheduledEventDetails',
+  TaskStarted: 'taskStartedEventDetails',
+  TaskStartFailed: 'taskStartFailedEventDetails',
+  TaskStateAborted: '',
+  TaskStateEntered: 'stateEnteredEventDetails',
+  TaskStateExited: 'stateExitedEventDetails',
+  TaskSubmitFailed: 'taskSubmitFailedEventDetails',
+  TaskSubmitted: 'taskSubmittedEventDetails',
+  TaskSucceeded: 'taskSucceededEventDetails',
+  TaskTimedOut: 'taskTimedOutEventDetails',
+  WaitStateAborted: '',
+  WaitStateEntered: '',
+  WaitStateExited: '',
+} as { [key: string]: string };
+
 export const createJestTestFromMockConfig = (
   config: StepFunctionsMockConfig,
   aslDefinition: string
@@ -179,7 +241,7 @@ export const createJestTestFromMockConfig = (
 
           // save for later usage
           stateMachineArn = result.stateMachineArn!;
-        });
+        }, 30_000);
 
         afterAll(async () => {
           await container?.stop();
@@ -202,48 +264,97 @@ export const createJestTestFromMockConfig = (
               );
 
               // Assert
-              const { events = [] } = await client.getExecutionHistory(
-                startExecutionResponse.executionArn!
-              );
-              // console.warn(JSON.stringify(events));
+              const { events: rawEvents = [] } =
+                await client.getExecutionHistory(
+                  startExecutionResponse.executionArn!
+                );
 
-              const resultsMap = new Map<string, any[]>();
-              for (const e of events) {
-                if (e.stateEnteredEventDetails?.name) {
-                  const val = resultsMap.get(e.stateEnteredEventDetails.name);
-                  if (val) {
-                    resultsMap.set(e.stateEnteredEventDetails.name, [
-                      ...val,
-                      { input: e.stateEnteredEventDetails.input },
-                    ]);
+              // TODO: think of an efficient way to do this
+              const { nextEvents, normalizedEvents } = rawEvents.reduce(
+                (obj, e) => {
+                  const id = e.id!.toString();
+                  const previousId = e.previousEventId!.toString();
+
+                  const { nextEvents, normalizedEvents } = obj;
+
+                  if (nextEvents[previousId]) {
+                    nextEvents[previousId].push(e.id?.toString());
                   } else {
-                    resultsMap.set(e.stateEnteredEventDetails.name, [
-                      { input: e.stateEnteredEventDetails.input },
-                    ]);
+                    nextEvents[previousId] = [e.id?.toString()];
                   }
-                  // console.warn(JSON.stringify(e));
-                  // expect(e).toMatchSnapshot({
-                  //   timestamp: expect.anything(),
-                  // });
+
+                  normalizedEvents[id] = e;
+
+                  return obj;
+                },
+                { nextEvents: {}, normalizedEvents: {} } as {
+                  nextEvents: { [id: string]: any[] };
+                  normalizedEvents: { [id: string]: HistoryEvent };
                 }
-                if (e.stateExitedEventDetails?.name) {
-                  const val = resultsMap.get(e.stateExitedEventDetails.name);
-                  if (val) {
-                    resultsMap.set(e.stateExitedEventDetails.name, [
-                      ...val,
-                      { output: e.stateExitedEventDetails.output },
-                    ]);
-                  } else {
-                    resultsMap.set(e.stateExitedEventDetails.name, [
-                      { output: e.stateExitedEventDetails.output },
-                    ]);
-                  }
-                }
-                // expect(e).toMatchSnapshot({
-                //   timestamp: expect.anything(),
-                // });
+              );
+
+              // console.log('next events', JSON.stringify(nextEvents));
+
+              let [results, nextKey] = findNext('0');
+              while (nextKey) {
+                const [res, next] = findNext(nextKey);
+                results = results.concat(res);
+                nextKey = next;
               }
-              expect(resultsMap).toMatchSnapshot();
+
+              // console.log('results', JSON.stringify(results));
+              expect(results).toMatchSnapshot();
+
+              function findNext(key: string) {
+                const events = [] as any[];
+                const initialEvent = normalizedEvents[key];
+                if (initialEvent) {
+                  const detail = (initialEvent as any)[
+                    typeMaps[initialEvent.type!]
+                  ];
+                  events.push({ type: initialEvent.type, detail });
+                }
+
+                let next = nextEvents[key];
+                while (next) {
+                  if (next.length > 1) {
+                    // parallel
+                    const results = {} as { [key: string]: string[] };
+                    let continueKey = ''; // only one continue key should happen. I think...
+                    for (let k of next) {
+                      let [ns, nextKey] = findNext(k);
+                      if (nextKey && !continueKey) {
+                        continueKey = nextKey;
+                      }
+
+                      const targetEvent = normalizedEvents[k];
+                      const name =
+                        targetEvent.stateEnteredEventDetails?.name ||
+                        targetEvent.stateExitedEventDetails?.name;
+                      results[`${targetEvent.type}${name || ''}`] = ns; // TODO: not sure if this has collisions or not
+                    }
+                    events.push(results);
+                    if (continueKey) return [events, continueKey];
+
+                    break;
+                  }
+
+                  const nextKey = next[0];
+                  const targetEvent = normalizedEvents[nextKey];
+                  if (targetEvent.type === 'ParallelStateSucceeded') {
+                    // Parallel screws things because of inconsistent order.
+                    // Break the sequence here
+                    return [events, nextKey];
+                  }
+
+                  const detail = (targetEvent as any)[
+                    typeMaps[targetEvent.type!]
+                  ];
+                  events.push({ type: targetEvent.type, detail });
+                  next = nextEvents[nextKey];
+                }
+                return [events];
+              }
             },
             30_000
           );
