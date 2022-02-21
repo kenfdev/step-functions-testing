@@ -15,7 +15,7 @@ Array [
         "type": "ExecutionStarted",
       },
     ],
-    "TaskStateEnteredLambdaState": Array [
+    "TaskStateEntered LambdaState": Array [
       Object {
         "detail": Object {
           "input": "{}",
@@ -143,7 +143,7 @@ Array [
         "type": "ExecutionStarted",
       },
     ],
-    "TaskStateEnteredLambdaState": Array [
+    "TaskStateEntered LambdaState": Array [
       Object {
         "detail": Object {
           "input": "{}",

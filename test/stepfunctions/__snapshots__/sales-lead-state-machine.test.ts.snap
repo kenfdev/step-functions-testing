@@ -15,7 +15,7 @@ Array [
         "type": "ExecutionStarted",
       },
     ],
-    "ParallelStateEnteredValidation": Array [
+    "ParallelStateEntered Validation": Array [
       Object {
         "detail": Object {
           "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -29,11 +29,10 @@ Array [
       Object {
         "ParallelStateStarted": Array [
           Object {
-            "detail": undefined,
             "type": "ParallelStateStarted",
           },
           Object {
-            "TaskStateEnteredCheck Address": Array [
+            "TaskStateEntered Check Address": Array [
               Object {
                 "detail": Object {
                   "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -84,7 +83,7 @@ Array [
                 "type": "TaskStateExited",
               },
             ],
-            "TaskStateEnteredCheck Identity": Array [
+            "TaskStateEntered Check Identity": Array [
               Object {
                 "detail": Object {
                   "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -204,13 +203,12 @@ Array [
                 "type": "TaskFailed",
               },
               Object {
-                "detail": undefined,
                 "type": "ParallelStateFailed",
               },
             ],
           },
         ],
-        "TaskStateExitedValidation": Array [
+        "TaskStateExited Validation": Array [
           Object {
             "detail": Object {
               "name": "Validation",
@@ -301,7 +299,7 @@ Array [
         "type": "ExecutionStarted",
       },
     ],
-    "ParallelStateEnteredValidation": Array [
+    "ParallelStateEntered Validation": Array [
       Object {
         "detail": Object {
           "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -313,11 +311,10 @@ Array [
         "type": "ParallelStateEntered",
       },
       Object {
-        "detail": undefined,
         "type": "ParallelStateStarted",
       },
       Object {
-        "TaskStateEnteredCheck Address": Array [
+        "TaskStateEntered Check Address": Array [
           Object {
             "detail": Object {
               "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -368,7 +365,7 @@ Array [
             "type": "TaskStateExited",
           },
         ],
-        "TaskStateEnteredCheck Identity": Array [
+        "TaskStateEntered Check Identity": Array [
           Object {
             "detail": Object {
               "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -423,7 +420,6 @@ Array [
     ],
   },
   Object {
-    "detail": undefined,
     "type": "ParallelStateSucceeded",
   },
   Object {
@@ -630,7 +626,7 @@ Array [
         "type": "ExecutionStarted",
       },
     ],
-    "ParallelStateEnteredValidation": Array [
+    "ParallelStateEntered Validation": Array [
       Object {
         "detail": Object {
           "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -642,11 +638,10 @@ Array [
         "type": "ParallelStateEntered",
       },
       Object {
-        "detail": undefined,
         "type": "ParallelStateStarted",
       },
       Object {
-        "TaskStateEnteredCheck Address": Array [
+        "TaskStateEntered Check Address": Array [
           Object {
             "detail": Object {
               "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -697,7 +692,7 @@ Array [
             "type": "TaskStateExited",
           },
         ],
-        "TaskStateEnteredCheck Identity": Array [
+        "TaskStateEntered Check Identity": Array [
           Object {
             "detail": Object {
               "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -752,7 +747,6 @@ Array [
     ],
   },
   Object {
-    "detail": undefined,
     "type": "ParallelStateSucceeded",
   },
   Object {
@@ -910,7 +904,7 @@ Array [
         "type": "ExecutionStarted",
       },
     ],
-    "ParallelStateEnteredValidation": Array [
+    "ParallelStateEntered Validation": Array [
       Object {
         "detail": Object {
           "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -922,11 +916,10 @@ Array [
         "type": "ParallelStateEntered",
       },
       Object {
-        "detail": undefined,
         "type": "ParallelStateStarted",
       },
       Object {
-        "TaskStateEnteredCheck Address": Array [
+        "TaskStateEntered Check Address": Array [
           Object {
             "detail": Object {
               "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -977,7 +970,7 @@ Array [
             "type": "TaskStateExited",
           },
         ],
-        "TaskStateEnteredCheck Identity": Array [
+        "TaskStateEntered Check Identity": Array [
           Object {
             "detail": Object {
               "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -1032,7 +1025,6 @@ Array [
     ],
   },
   Object {
-    "detail": undefined,
     "type": "ParallelStateSucceeded",
   },
   Object {
@@ -1320,7 +1312,7 @@ Array [
         "type": "ExecutionStarted",
       },
     ],
-    "ParallelStateEnteredValidation": Array [
+    "ParallelStateEntered Validation": Array [
       Object {
         "detail": Object {
           "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -1334,11 +1326,10 @@ Array [
       Object {
         "ParallelStateStarted": Array [
           Object {
-            "detail": undefined,
             "type": "ParallelStateStarted",
           },
           Object {
-            "TaskStateEnteredCheck Address": Array [
+            "TaskStateEntered Check Address": Array [
               Object {
                 "detail": Object {
                   "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -1377,11 +1368,10 @@ Array [
                 "type": "TaskFailed",
               },
               Object {
-                "detail": undefined,
                 "type": "ParallelStateFailed",
               },
             ],
-            "TaskStateEnteredCheck Identity": Array [
+            "TaskStateEntered Check Identity": Array [
               Object {
                 "detail": Object {
                   "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}}",
@@ -1434,7 +1424,7 @@ Array [
             ],
           },
         ],
-        "TaskStateExitedValidation": Array [
+        "TaskStateExited Validation": Array [
           Object {
             "detail": Object {
               "name": "Validation",
