@@ -1,0 +1,36 @@
+{
+  "StartAt": "LambdaState",
+  "States": {
+    "LambdaState": {
+      "Next": "SqsState",
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "IntervalSeconds": 0,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+        "Payload": {
+          "Payload.$": "$",
+          "FunctionName": "HelloWorldFunction"
+        }
+      }
+    },
+    "SqsState": {
+      "End": true,
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sqs:sendMessage",
+      "Parameters": {
+        "QueueUrl": "https://sqs.us-west-2.amazonaws.com/444455556666/queue1",
+        "MessageBody.$": "$"
+      }
+    }
+  }
+}

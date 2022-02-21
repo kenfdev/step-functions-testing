@@ -6,7 +6,7 @@ const AWS_URL_SUFFIX = process.env.AWS_URL_SUFFIX || 'amazonaws.com';
 
 // 99% copied from
 // https://github.com/nathanagez/aws-cdk-state-machine-asl
-export const extractStateMachineAsls = (stack: cdk.Stack) => {
+export const extractStateMachineAsls = (stack: cdk.Stack): any[] => {
   const { Resources: resources = {} } = Template.fromStack(stack).toJSON();
 
   const stateMachineResources = Object.keys(resources)
@@ -20,7 +20,7 @@ export const extractStateMachineAsls = (stack: cdk.Stack) => {
     const definitionString = resource.Properties.DefinitionString;
     const [delimiter, values] = definitionString['Fn::Join'];
     const resolvedExpressions = resolveExpressions(values);
-    return resolvedExpressions.join(delimiter);
+    return JSON.parse(resolvedExpressions.join(delimiter));
   });
 };
 

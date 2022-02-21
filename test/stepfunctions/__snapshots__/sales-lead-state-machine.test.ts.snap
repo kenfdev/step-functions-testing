@@ -417,196 +417,196 @@ Array [
           },
         ],
       },
+      Object {
+        "type": "ParallelStateSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "Validation",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ParallelStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "DetectSentiment",
+        },
+        "type": "TaskStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+          "region": "us-east-1",
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "DetectSentiment",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "Is Positive Sentiment?",
+        },
+        "type": "ChoiceStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "name": "Is Positive Sentiment?",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ChoiceStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "Add to FollowUp",
+        },
+        "type": "TaskStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"Item\\":{\\"PK\\":{\\"S\\":\\"jdoe@example.com\\"}},\\"TableName\\":\\"FollowUpTable\\"}",
+          "region": "us-east-1",
+          "resource": "putItem",
+          "resourceType": "dynamodb",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "putItem",
+          "resourceType": "dynamodb",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "putItem",
+          "resourceType": "dynamodb",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "Add to FollowUp",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "CustomerAddedToFollowup",
+        },
+        "type": "TaskStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Customer Added for follow up\\",\\"EmailAddress\\":\\"jdoe@example.com\\"},\\"DetailType\\":\\"CustomerAdded\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
+          "region": "us-east-1",
+          "resource": "putEvents",
+          "resourceType": "events",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "putEvents",
+          "resourceType": "events",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "putEvents",
+          "resourceType": "events",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "CustomerAddedToFollowup",
+          "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ExecutionSucceeded",
+      },
     ],
-  },
-  Object {
-    "type": "ParallelStateSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "Validation",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "ParallelStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "DetectSentiment",
-    },
-    "type": "TaskStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-      "region": "us-east-1",
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "DetectSentiment",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "TaskStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "Is Positive Sentiment?",
-    },
-    "type": "ChoiceStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "name": "Is Positive Sentiment?",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "ChoiceStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "Add to FollowUp",
-    },
-    "type": "TaskStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"Item\\":{\\"PK\\":{\\"S\\":\\"jdoe@example.com\\"}},\\"TableName\\":\\"FollowUpTable\\"}",
-      "region": "us-east-1",
-      "resource": "putItem",
-      "resourceType": "dynamodb",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "putItem",
-      "resourceType": "dynamodb",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-      "resource": "putItem",
-      "resourceType": "dynamodb",
-    },
-    "type": "TaskSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "Add to FollowUp",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "TaskStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "CustomerAddedToFollowup",
-    },
-    "type": "TaskStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Customer Added for follow up\\",\\"EmailAddress\\":\\"jdoe@example.com\\"},\\"DetailType\\":\\"CustomerAdded\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
-      "region": "us-east-1",
-      "resource": "putEvents",
-      "resourceType": "events",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "putEvents",
-      "resourceType": "events",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-      "resource": "putEvents",
-      "resourceType": "events",
-    },
-    "type": "TaskSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "CustomerAddedToFollowup",
-      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "TaskStateExited",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "ExecutionSucceeded",
   },
 ]
 `;
@@ -744,147 +744,147 @@ Array [
           },
         ],
       },
+      Object {
+        "type": "ParallelStateSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "Validation",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ParallelStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "DetectSentiment",
+        },
+        "type": "TaskStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+          "region": "us-east-1",
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "DetectSentiment",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "Is Positive Sentiment?",
+        },
+        "type": "ChoiceStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "name": "Is Positive Sentiment?",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ChoiceStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "NegativeSentimentDetected",
+        },
+        "type": "TaskStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Negative Sentiment Detected\\",\\"Data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}},\\"DetailType\\":\\"NegativeSentiment\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
+          "region": "us-east-1",
+          "resource": "putEvents",
+          "resourceType": "events",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "putEvents",
+          "resourceType": "events",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "putEvents",
+          "resourceType": "events",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "NegativeSentimentDetected",
+          "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ExecutionSucceeded",
+      },
     ],
-  },
-  Object {
-    "type": "ParallelStateSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "Validation",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "ParallelStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "DetectSentiment",
-    },
-    "type": "TaskStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-      "region": "us-east-1",
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "DetectSentiment",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "TaskStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "Is Positive Sentiment?",
-    },
-    "type": "ChoiceStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "name": "Is Positive Sentiment?",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "ChoiceStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"NEGATIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Positive\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Negative\\":0.9946478}}}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "NegativeSentimentDetected",
-    },
-    "type": "TaskStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Negative Sentiment Detected\\",\\"Data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}},\\"DetailType\\":\\"NegativeSentiment\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
-      "region": "us-east-1",
-      "resource": "putEvents",
-      "resourceType": "events",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "putEvents",
-      "resourceType": "events",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-      "resource": "putEvents",
-      "resourceType": "events",
-    },
-    "type": "TaskSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "NegativeSentimentDetected",
-      "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "TaskStateExited",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"Payload\\":{\\"Entries\\":[{\\"EventId\\":\\"abc123\\"}],\\"FailedEntryCount\\":0}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "ExecutionSucceeded",
   },
 ]
 `;
@@ -1022,277 +1022,277 @@ Array [
           },
         ],
       },
+      Object {
+        "type": "ParallelStateSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "Validation",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ParallelStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "DetectSentiment",
+        },
+        "type": "TaskStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+          "region": "us-east-1",
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
+          "error": "InternalServerException",
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskFailed",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+          "region": "us-east-1",
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
+          "error": "InternalServerException",
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskFailed",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+          "region": "us-east-1",
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
+          "error": "InternalServerException",
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskFailed",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
+          "region": "us-east-1",
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "comprehend:detectSentiment",
+          "resourceType": "aws-sdk",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "DetectSentiment",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "Is Positive Sentiment?",
+        },
+        "type": "ChoiceStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "name": "Is Positive Sentiment?",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ChoiceStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "Add to FollowUp",
+        },
+        "type": "TaskStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"Item\\":{\\"PK\\":{\\"S\\":\\"jdoe@example.com\\"}},\\"TableName\\":\\"FollowUpTable\\"}",
+          "region": "us-east-1",
+          "resource": "putItem",
+          "resourceType": "dynamodb",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "putItem",
+          "resourceType": "dynamodb",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "putItem",
+          "resourceType": "dynamodb",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "Add to FollowUp",
+          "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
+          "inputDetails": Object {
+            "truncated": false,
+          },
+          "name": "CustomerAddedToFollowup",
+        },
+        "type": "TaskStateEntered",
+      },
+      Object {
+        "detail": Object {
+          "heartbeatInSeconds": undefined,
+          "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Customer Added for follow up\\",\\"EmailAddress\\":\\"jdoe@example.com\\"},\\"DetailType\\":\\"CustomerAdded\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
+          "region": "us-east-1",
+          "resource": "putEvents",
+          "resourceType": "events",
+          "timeoutInSeconds": undefined,
+        },
+        "type": "TaskScheduled",
+      },
+      Object {
+        "detail": Object {
+          "resource": "putEvents",
+          "resourceType": "events",
+        },
+        "type": "TaskStarted",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+          "resource": "putEvents",
+          "resourceType": "events",
+        },
+        "type": "TaskSucceeded",
+      },
+      Object {
+        "detail": Object {
+          "name": "CustomerAddedToFollowup",
+          "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "TaskStateExited",
+      },
+      Object {
+        "detail": Object {
+          "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
+          "outputDetails": Object {
+            "truncated": false,
+          },
+        },
+        "type": "ExecutionSucceeded",
+      },
     ],
-  },
-  Object {
-    "type": "ParallelStateSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "Validation",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "ParallelStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"addressResult\\":{\\"approved\\":true,\\"message\\":\\"address validation passed\\"},\\"identityResult\\":{\\"approved\\":true,\\"message\\":\\"identity validation passed\\"}}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "DetectSentiment",
-    },
-    "type": "TaskStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-      "region": "us-east-1",
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
-      "error": "InternalServerException",
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskFailed",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-      "region": "us-east-1",
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
-      "error": "InternalServerException",
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskFailed",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-      "region": "us-east-1",
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "cause": "Server Exception while calling DetectSentiment API in Comprehend Service",
-      "error": "InternalServerException",
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskFailed",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"LanguageCode\\":\\"en\\",\\"Text\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"}",
-      "region": "us-east-1",
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-      "resource": "comprehend:detectSentiment",
-      "resourceType": "aws-sdk",
-    },
-    "type": "TaskSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "DetectSentiment",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "TaskStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "Is Positive Sentiment?",
-    },
-    "type": "ChoiceStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "name": "Is Positive Sentiment?",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "ChoiceStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"sentimentAnalysis\\":{\\"Sentiment\\":\\"POSITIVE\\",\\"SentimentScore\\":{\\"Mixed\\":1.2647535E-4,\\"Negative\\":8.031699E-5,\\"Neutral\\":0.0051454515,\\"Positive\\":0.9946478}}}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "Add to FollowUp",
-    },
-    "type": "TaskStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"Item\\":{\\"PK\\":{\\"S\\":\\"jdoe@example.com\\"}},\\"TableName\\":\\"FollowUpTable\\"}",
-      "region": "us-east-1",
-      "resource": "putItem",
-      "resourceType": "dynamodb",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "putItem",
-      "resourceType": "dynamodb",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-      "resource": "putItem",
-      "resourceType": "dynamodb",
-    },
-    "type": "TaskSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "Add to FollowUp",
-      "output": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "TaskStateExited",
-  },
-  Object {
-    "detail": Object {
-      "input": "{\\"data\\":{\\"firstname\\":\\"Jane\\",\\"lastname\\":\\"Doe\\",\\"identity\\":{\\"email\\":\\"jdoe@example.com\\",\\"ssn\\":\\"123-45-6789\\"},\\"address\\":{\\"street\\":\\"123 Main St\\",\\"city\\":\\"Columbus\\",\\"state\\":\\"OH\\",\\"zip\\":\\"43219\\"},\\"comments\\":\\"I am glad to sign-up for this service. Looking forward to different options.\\"},\\"results\\":{\\"dbUpdateStatusCode\\":200}}",
-      "inputDetails": Object {
-        "truncated": false,
-      },
-      "name": "CustomerAddedToFollowup",
-    },
-    "type": "TaskStateEntered",
-  },
-  Object {
-    "detail": Object {
-      "heartbeatInSeconds": undefined,
-      "parameters": "{\\"Entries\\":[{\\"Detail\\":{\\"Message\\":\\"Customer Added for follow up\\",\\"EmailAddress\\":\\"jdoe@example.com\\"},\\"DetailType\\":\\"CustomerAdded\\",\\"Source\\":\\"LocalTestingSource\\"}]}",
-      "region": "us-east-1",
-      "resource": "putEvents",
-      "resourceType": "events",
-      "timeoutInSeconds": undefined,
-    },
-    "type": "TaskScheduled",
-  },
-  Object {
-    "detail": Object {
-      "resource": "putEvents",
-      "resourceType": "events",
-    },
-    "type": "TaskStarted",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-      "resource": "putEvents",
-      "resourceType": "events",
-    },
-    "type": "TaskSucceeded",
-  },
-  Object {
-    "detail": Object {
-      "name": "CustomerAddedToFollowup",
-      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "TaskStateExited",
-  },
-  Object {
-    "detail": Object {
-      "output": "{\\"StatusCode\\":200,\\"Payload\\":{\\"statusCode\\":200}}",
-      "outputDetails": Object {
-        "truncated": false,
-      },
-    },
-    "type": "ExecutionSucceeded",
   },
 ]
 `;

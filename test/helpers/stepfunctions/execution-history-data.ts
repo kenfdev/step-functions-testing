@@ -600,250 +600,250 @@ export const testCases = [
               },
             ],
           },
+          { type: 'ParallelStateSucceeded' },
+          {
+            type: 'ParallelStateExited',
+            detail: {
+              name: 'Validation',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'TaskStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
+              inputDetails: { truncated: false },
+              name: 'DetectSentiment',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
+              region: 'us-east-1',
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: {
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskFailed',
+            detail: {
+              cause:
+                'Server Exception while calling DetectSentiment API in Comprehend Service',
+              error: 'InternalServerException',
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
+              region: 'us-east-1',
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: {
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskFailed',
+            detail: {
+              cause:
+                'Server Exception while calling DetectSentiment API in Comprehend Service',
+              error: 'InternalServerException',
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
+              region: 'us-east-1',
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: {
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskFailed',
+            detail: {
+              cause:
+                'Server Exception while calling DetectSentiment API in Comprehend Service',
+              error: 'InternalServerException',
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
+              region: 'us-east-1',
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: {
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskSucceeded',
+            detail: {
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
+              outputDetails: { truncated: false },
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskStateExited',
+            detail: {
+              name: 'DetectSentiment',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'ChoiceStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
+              inputDetails: { truncated: false },
+              name: 'Is Positive Sentiment?',
+            },
+          },
+          {
+            type: 'ChoiceStateExited',
+            detail: {
+              name: 'Is Positive Sentiment?',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'TaskStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
+              inputDetails: { truncated: false },
+              name: 'Add to FollowUp',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"Item":{"PK":{"S":"jdoe@example.com"}},"TableName":"FollowUpTable"}',
+              region: 'us-east-1',
+              resource: 'putItem',
+              resourceType: 'dynamodb',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: { resource: 'putItem', resourceType: 'dynamodb' },
+          },
+          {
+            type: 'TaskSucceeded',
+            detail: {
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
+              outputDetails: { truncated: false },
+              resource: 'putItem',
+              resourceType: 'dynamodb',
+            },
+          },
+          {
+            type: 'TaskStateExited',
+            detail: {
+              name: 'Add to FollowUp',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'TaskStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
+              inputDetails: { truncated: false },
+              name: 'CustomerAddedToFollowup',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"Entries":[{"Detail":{"Message":"Customer Added for follow up","EmailAddress":"jdoe@example.com"},"DetailType":"CustomerAdded","Source":"LocalTestingSource"}]}',
+              region: 'us-east-1',
+              resource: 'putEvents',
+              resourceType: 'events',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: { resource: 'putEvents', resourceType: 'events' },
+          },
+          {
+            type: 'TaskSucceeded',
+            detail: {
+              output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
+              outputDetails: { truncated: false },
+              resource: 'putEvents',
+              resourceType: 'events',
+            },
+          },
+          {
+            type: 'TaskStateExited',
+            detail: {
+              name: 'CustomerAddedToFollowup',
+              output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'ExecutionSucceeded',
+            detail: {
+              output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
+              outputDetails: { truncated: false },
+            },
+          },
         ],
-      },
-      { type: 'ParallelStateSucceeded' },
-      {
-        type: 'ParallelStateExited',
-        detail: {
-          name: 'Validation',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'TaskStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
-          inputDetails: { truncated: false },
-          name: 'DetectSentiment',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
-          region: 'us-east-1',
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: {
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskFailed',
-        detail: {
-          cause:
-            'Server Exception while calling DetectSentiment API in Comprehend Service',
-          error: 'InternalServerException',
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
-          region: 'us-east-1',
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: {
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskFailed',
-        detail: {
-          cause:
-            'Server Exception while calling DetectSentiment API in Comprehend Service',
-          error: 'InternalServerException',
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
-          region: 'us-east-1',
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: {
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskFailed',
-        detail: {
-          cause:
-            'Server Exception while calling DetectSentiment API in Comprehend Service',
-          error: 'InternalServerException',
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
-          region: 'us-east-1',
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: {
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskSucceeded',
-        detail: {
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
-          outputDetails: { truncated: false },
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskStateExited',
-        detail: {
-          name: 'DetectSentiment',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'ChoiceStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
-          inputDetails: { truncated: false },
-          name: 'Is Positive Sentiment?',
-        },
-      },
-      {
-        type: 'ChoiceStateExited',
-        detail: {
-          name: 'Is Positive Sentiment?',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'TaskStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
-          inputDetails: { truncated: false },
-          name: 'Add to FollowUp',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"Item":{"PK":{"S":"jdoe@example.com"}},"TableName":"FollowUpTable"}',
-          region: 'us-east-1',
-          resource: 'putItem',
-          resourceType: 'dynamodb',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: { resource: 'putItem', resourceType: 'dynamodb' },
-      },
-      {
-        type: 'TaskSucceeded',
-        detail: {
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
-          outputDetails: { truncated: false },
-          resource: 'putItem',
-          resourceType: 'dynamodb',
-        },
-      },
-      {
-        type: 'TaskStateExited',
-        detail: {
-          name: 'Add to FollowUp',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'TaskStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
-          inputDetails: { truncated: false },
-          name: 'CustomerAddedToFollowup',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"Entries":[{"Detail":{"Message":"Customer Added for follow up","EmailAddress":"jdoe@example.com"},"DetailType":"CustomerAdded","Source":"LocalTestingSource"}]}',
-          region: 'us-east-1',
-          resource: 'putEvents',
-          resourceType: 'events',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: { resource: 'putEvents', resourceType: 'events' },
-      },
-      {
-        type: 'TaskSucceeded',
-        detail: {
-          output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
-          outputDetails: { truncated: false },
-          resource: 'putEvents',
-          resourceType: 'events',
-        },
-      },
-      {
-        type: 'TaskStateExited',
-        detail: {
-          name: 'CustomerAddedToFollowup',
-          output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'ExecutionSucceeded',
-        detail: {
-          output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
-          outputDetails: { truncated: false },
-        },
       },
     ],
   },
@@ -1180,7 +1180,7 @@ export const testCases = [
                 ],
               },
             ],
-            "TaskStateExited Validation": [
+            'TaskStateExited Validation': [
               {
                 type: 'TaskStateExited',
                 detail: {
@@ -1926,130 +1926,130 @@ export const testCases = [
               },
             ],
           },
+          { type: 'ParallelStateSucceeded' },
+          {
+            type: 'ParallelStateExited',
+            detail: {
+              name: 'Validation',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'TaskStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
+              inputDetails: { truncated: false },
+              name: 'DetectSentiment',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
+              region: 'us-east-1',
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: {
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskSucceeded',
+            detail: {
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"NEGATIVE","SentimentScore":{"Mixed":1.2647535E-4,"Positive":8.031699E-5,"Neutral":0.0051454515,"Negative":0.9946478}}}}',
+              outputDetails: { truncated: false },
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskStateExited',
+            detail: {
+              name: 'DetectSentiment',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"NEGATIVE","SentimentScore":{"Mixed":1.2647535E-4,"Positive":8.031699E-5,"Neutral":0.0051454515,"Negative":0.9946478}}}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'ChoiceStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"NEGATIVE","SentimentScore":{"Mixed":1.2647535E-4,"Positive":8.031699E-5,"Neutral":0.0051454515,"Negative":0.9946478}}}}',
+              inputDetails: { truncated: false },
+              name: 'Is Positive Sentiment?',
+            },
+          },
+          {
+            type: 'ChoiceStateExited',
+            detail: {
+              name: 'Is Positive Sentiment?',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"NEGATIVE","SentimentScore":{"Mixed":1.2647535E-4,"Positive":8.031699E-5,"Neutral":0.0051454515,"Negative":0.9946478}}}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'TaskStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"NEGATIVE","SentimentScore":{"Mixed":1.2647535E-4,"Positive":8.031699E-5,"Neutral":0.0051454515,"Negative":0.9946478}}}}',
+              inputDetails: { truncated: false },
+              name: 'NegativeSentimentDetected',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"Entries":[{"Detail":{"Message":"Negative Sentiment Detected","Data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."}},"DetailType":"NegativeSentiment","Source":"LocalTestingSource"}]}',
+              region: 'us-east-1',
+              resource: 'putEvents',
+              resourceType: 'events',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: { resource: 'putEvents', resourceType: 'events' },
+          },
+          {
+            type: 'TaskSucceeded',
+            detail: {
+              output:
+                '{"Payload":{"Entries":[{"EventId":"abc123"}],"FailedEntryCount":0}}',
+              outputDetails: { truncated: false },
+              resource: 'putEvents',
+              resourceType: 'events',
+            },
+          },
+          {
+            type: 'TaskStateExited',
+            detail: {
+              name: 'NegativeSentimentDetected',
+              output:
+                '{"Payload":{"Entries":[{"EventId":"abc123"}],"FailedEntryCount":0}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'ExecutionSucceeded',
+            detail: {
+              output:
+                '{"Payload":{"Entries":[{"EventId":"abc123"}],"FailedEntryCount":0}}',
+              outputDetails: { truncated: false },
+            },
+          },
         ],
-      },
-      { type: 'ParallelStateSucceeded' },
-      {
-        type: 'ParallelStateExited',
-        detail: {
-          name: 'Validation',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'TaskStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
-          inputDetails: { truncated: false },
-          name: 'DetectSentiment',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
-          region: 'us-east-1',
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: {
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskSucceeded',
-        detail: {
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"NEGATIVE","SentimentScore":{"Mixed":1.2647535E-4,"Positive":8.031699E-5,"Neutral":0.0051454515,"Negative":0.9946478}}}}',
-          outputDetails: { truncated: false },
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskStateExited',
-        detail: {
-          name: 'DetectSentiment',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"NEGATIVE","SentimentScore":{"Mixed":1.2647535E-4,"Positive":8.031699E-5,"Neutral":0.0051454515,"Negative":0.9946478}}}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'ChoiceStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"NEGATIVE","SentimentScore":{"Mixed":1.2647535E-4,"Positive":8.031699E-5,"Neutral":0.0051454515,"Negative":0.9946478}}}}',
-          inputDetails: { truncated: false },
-          name: 'Is Positive Sentiment?',
-        },
-      },
-      {
-        type: 'ChoiceStateExited',
-        detail: {
-          name: 'Is Positive Sentiment?',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"NEGATIVE","SentimentScore":{"Mixed":1.2647535E-4,"Positive":8.031699E-5,"Neutral":0.0051454515,"Negative":0.9946478}}}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'TaskStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"NEGATIVE","SentimentScore":{"Mixed":1.2647535E-4,"Positive":8.031699E-5,"Neutral":0.0051454515,"Negative":0.9946478}}}}',
-          inputDetails: { truncated: false },
-          name: 'NegativeSentimentDetected',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"Entries":[{"Detail":{"Message":"Negative Sentiment Detected","Data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."}},"DetailType":"NegativeSentiment","Source":"LocalTestingSource"}]}',
-          region: 'us-east-1',
-          resource: 'putEvents',
-          resourceType: 'events',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: { resource: 'putEvents', resourceType: 'events' },
-      },
-      {
-        type: 'TaskSucceeded',
-        detail: {
-          output:
-            '{"Payload":{"Entries":[{"EventId":"abc123"}],"FailedEntryCount":0}}',
-          outputDetails: { truncated: false },
-          resource: 'putEvents',
-          resourceType: 'events',
-        },
-      },
-      {
-        type: 'TaskStateExited',
-        detail: {
-          name: 'NegativeSentimentDetected',
-          output:
-            '{"Payload":{"Entries":[{"EventId":"abc123"}],"FailedEntryCount":0}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'ExecutionSucceeded',
-        detail: {
-          output:
-            '{"Payload":{"Entries":[{"EventId":"abc123"}],"FailedEntryCount":0}}',
-          outputDetails: { truncated: false },
-        },
       },
     ],
     input: [
@@ -2489,169 +2489,169 @@ export const testCases = [
               },
             ],
           },
+          { type: 'ParallelStateSucceeded' },
+          {
+            type: 'ParallelStateExited',
+            detail: {
+              name: 'Validation',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'TaskStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
+              inputDetails: { truncated: false },
+              name: 'DetectSentiment',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
+              region: 'us-east-1',
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: {
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskSucceeded',
+            detail: {
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
+              outputDetails: { truncated: false },
+              resource: 'comprehend:detectSentiment',
+              resourceType: 'aws-sdk',
+            },
+          },
+          {
+            type: 'TaskStateExited',
+            detail: {
+              name: 'DetectSentiment',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'ChoiceStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
+              inputDetails: { truncated: false },
+              name: 'Is Positive Sentiment?',
+            },
+          },
+          {
+            type: 'ChoiceStateExited',
+            detail: {
+              name: 'Is Positive Sentiment?',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'TaskStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
+              inputDetails: { truncated: false },
+              name: 'Add to FollowUp',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"Item":{"PK":{"S":"jdoe@example.com"}},"TableName":"FollowUpTable"}',
+              region: 'us-east-1',
+              resource: 'putItem',
+              resourceType: 'dynamodb',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: { resource: 'putItem', resourceType: 'dynamodb' },
+          },
+          {
+            type: 'TaskSucceeded',
+            detail: {
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
+              outputDetails: { truncated: false },
+              resource: 'putItem',
+              resourceType: 'dynamodb',
+            },
+          },
+          {
+            type: 'TaskStateExited',
+            detail: {
+              name: 'Add to FollowUp',
+              output:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'TaskStateEntered',
+            detail: {
+              input:
+                '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
+              inputDetails: { truncated: false },
+              name: 'CustomerAddedToFollowup',
+            },
+          },
+          {
+            type: 'TaskScheduled',
+            detail: {
+              parameters:
+                '{"Entries":[{"Detail":{"Message":"Customer Added for follow up","EmailAddress":"jdoe@example.com"},"DetailType":"CustomerAdded","Source":"LocalTestingSource"}]}',
+              region: 'us-east-1',
+              resource: 'putEvents',
+              resourceType: 'events',
+            },
+          },
+          {
+            type: 'TaskStarted',
+            detail: { resource: 'putEvents', resourceType: 'events' },
+          },
+          {
+            type: 'TaskSucceeded',
+            detail: {
+              output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
+              outputDetails: { truncated: false },
+              resource: 'putEvents',
+              resourceType: 'events',
+            },
+          },
+          {
+            type: 'TaskStateExited',
+            detail: {
+              name: 'CustomerAddedToFollowup',
+              output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
+              outputDetails: { truncated: false },
+            },
+          },
+          {
+            type: 'ExecutionSucceeded',
+            detail: {
+              output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
+              outputDetails: { truncated: false },
+            },
+          },
         ],
-      },
-      { type: 'ParallelStateSucceeded' },
-      {
-        type: 'ParallelStateExited',
-        detail: {
-          name: 'Validation',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'TaskStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"addressResult":{"approved":true,"message":"address validation passed"},"identityResult":{"approved":true,"message":"identity validation passed"}}}',
-          inputDetails: { truncated: false },
-          name: 'DetectSentiment',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"LanguageCode":"en","Text":"I am glad to sign-up for this service. Looking forward to different options."}',
-          region: 'us-east-1',
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: {
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskSucceeded',
-        detail: {
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
-          outputDetails: { truncated: false },
-          resource: 'comprehend:detectSentiment',
-          resourceType: 'aws-sdk',
-        },
-      },
-      {
-        type: 'TaskStateExited',
-        detail: {
-          name: 'DetectSentiment',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'ChoiceStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
-          inputDetails: { truncated: false },
-          name: 'Is Positive Sentiment?',
-        },
-      },
-      {
-        type: 'ChoiceStateExited',
-        detail: {
-          name: 'Is Positive Sentiment?',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'TaskStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"sentimentAnalysis":{"Sentiment":"POSITIVE","SentimentScore":{"Mixed":1.2647535E-4,"Negative":8.031699E-5,"Neutral":0.0051454515,"Positive":0.9946478}}}}',
-          inputDetails: { truncated: false },
-          name: 'Add to FollowUp',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"Item":{"PK":{"S":"jdoe@example.com"}},"TableName":"FollowUpTable"}',
-          region: 'us-east-1',
-          resource: 'putItem',
-          resourceType: 'dynamodb',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: { resource: 'putItem', resourceType: 'dynamodb' },
-      },
-      {
-        type: 'TaskSucceeded',
-        detail: {
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
-          outputDetails: { truncated: false },
-          resource: 'putItem',
-          resourceType: 'dynamodb',
-        },
-      },
-      {
-        type: 'TaskStateExited',
-        detail: {
-          name: 'Add to FollowUp',
-          output:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'TaskStateEntered',
-        detail: {
-          input:
-            '{"data":{"firstname":"Jane","lastname":"Doe","identity":{"email":"jdoe@example.com","ssn":"123-45-6789"},"address":{"street":"123 Main St","city":"Columbus","state":"OH","zip":"43219"},"comments":"I am glad to sign-up for this service. Looking forward to different options."},"results":{"dbUpdateStatusCode":200}}',
-          inputDetails: { truncated: false },
-          name: 'CustomerAddedToFollowup',
-        },
-      },
-      {
-        type: 'TaskScheduled',
-        detail: {
-          parameters:
-            '{"Entries":[{"Detail":{"Message":"Customer Added for follow up","EmailAddress":"jdoe@example.com"},"DetailType":"CustomerAdded","Source":"LocalTestingSource"}]}',
-          region: 'us-east-1',
-          resource: 'putEvents',
-          resourceType: 'events',
-        },
-      },
-      {
-        type: 'TaskStarted',
-        detail: { resource: 'putEvents', resourceType: 'events' },
-      },
-      {
-        type: 'TaskSucceeded',
-        detail: {
-          output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
-          outputDetails: { truncated: false },
-          resource: 'putEvents',
-          resourceType: 'events',
-        },
-      },
-      {
-        type: 'TaskStateExited',
-        detail: {
-          name: 'CustomerAddedToFollowup',
-          output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
-          outputDetails: { truncated: false },
-        },
-      },
-      {
-        type: 'ExecutionSucceeded',
-        detail: {
-          output: '{"StatusCode":200,"Payload":{"statusCode":200}}',
-          outputDetails: { truncated: false },
-        },
       },
     ],
     input: [

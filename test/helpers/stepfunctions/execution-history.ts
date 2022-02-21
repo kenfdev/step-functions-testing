@@ -110,7 +110,7 @@ function findNext(
   eventsById: EventsById,
   nextEventIdsMap: NextEventIdsMap
 ): [any[], string?] {
-  const events = [] as any[];
+  let events = [] as any[];
   const initialEvent = eventsById[key];
   if (initialEvent) {
     const detail = getEventDetail(initialEvent);
@@ -123,7 +123,7 @@ function findNext(
       // if there are more than 2 events next, it is a parallel.
       // parallel events are described as objects
       const results = {} as { [key: string]: any[] };
-      let continueKey = ''; // only one continue key should happen. I think...
+      let continueKey: string | undefined = ''; // only one continue key should happen. I think...
       for (let nextEventId of nextEventIds) {
         let [subsequentEvents, nextKey] = findNext(
           nextEventId,
@@ -144,7 +144,12 @@ function findNext(
       }
       events.push(results);
 
-      if (continueKey) return [events, continueKey]; // if there was a continueKey. End the array here.
+      while (continueKey) {
+        const [res, next] = findNext(continueKey, eventsById, nextEventIdsMap);
+        events = events.concat(res);
+        continueKey = next;
+      }
+      // if (continueKey) return [events, continueKey]; // if there was a continueKey. End the array here.
 
       break;
     }
